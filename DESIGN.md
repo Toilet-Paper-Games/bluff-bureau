@@ -1,56 +1,53 @@
 ---
 name: Bluff Bureau
-description: A mechanical truth-routing system for believable lies and ridiculous facts.
+description: A room-sized lie-processing machine for unbelievable facts.
 colors:
-  midnight-void: "oklch(0.105 0.025 252)"
-  cobalt-enamel: "oklch(0.19 0.047 251)"
-  raised-enamel: "oklch(0.235 0.051 249)"
-  dormant-flap: "oklch(0.14 0.025 252)"
-  flap-edge: "oklch(0.275 0.025 252)"
-  docket-paper: "oklch(0.9 0.045 82)"
-  docket-shadow: "oklch(0.79 0.055 77)"
-  flap-ivory: "oklch(0.95 0.026 86)"
-  muted-slate: "oklch(0.76 0.035 246)"
-  signal-orange: "oklch(0.75 0.19 52)"
-  pressed-orange: "oklch(0.58 0.19 43)"
-  truth-mint: "oklch(0.82 0.105 157)"
-  bureau-magenta: "oklch(0.62 0.22 356)"
-  alert-red: "oklch(0.68 0.2 25)"
-  docket-ink: "oklch(0.16 0.032 250)"
+  night: "oklch(0.105 0.028 255)"
+  screen: "oklch(0.145 0.03 247)"
+  screen-raised: "oklch(0.19 0.035 246)"
+  steel: "oklch(0.44 0.025 246)"
+  steel-light: "oklch(0.68 0.03 245)"
+  evidence-cream: "oklch(0.94 0.055 91)"
+  cream-shadow: "oklch(0.79 0.065 82)"
+  chassis-orange: "oklch(0.68 0.205 39)"
+  pressed-orange: "oklch(0.47 0.175 35)"
+  signal-yellow: "oklch(0.9 0.185 98)"
+  truth-phosphor: "oklch(0.9 0.2 133)"
+  phosphor-shadow: "oklch(0.63 0.16 139)"
+  instrument-cyan: "oklch(0.78 0.145 211)"
+  bureau-magenta: "oklch(0.68 0.24 350)"
+  alert-red: "oklch(0.62 0.22 27)"
+  focus-lime: "oklch(0.96 0.2 111)"
+  ink: "oklch(0.16 0.03 252)"
 typography:
   display:
     fontFamily: "Archivo Narrow Variable, ui-sans-serif, sans-serif"
-    fontSize: "clamp(2.7rem, 7vw, 7rem)"
-    fontWeight: 790
-    lineHeight: 0.94
-    letterSpacing: "-0.02em"
-  headline:
-    fontFamily: "Archivo Narrow Variable, ui-sans-serif, sans-serif"
-    fontSize: "clamp(2.3rem, 11vw, 4rem)"
-    fontWeight: 780
-    lineHeight: 0.92
+    fontSize: "clamp(3.5rem, 8vw, 8rem)"
+    fontWeight: 850
+    lineHeight: 0.86
     letterSpacing: "-0.025em"
-  title:
+  controller-headline:
     fontFamily: "Archivo Narrow Variable, ui-sans-serif, sans-serif"
-    fontSize: "clamp(1.35rem, 6vw, 2rem)"
-    fontWeight: 720
-    lineHeight: 1.18
-    letterSpacing: "normal"
+    fontSize: "clamp(2.4rem, 11vw, 4.1rem)"
+    fontWeight: 850
+    lineHeight: 0.88
+    letterSpacing: "-0.025em"
   body:
     fontFamily: "Source Sans 3 Variable, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.5
+    lineHeight: 1.45
     letterSpacing: "normal"
-  label:
+  instrument-label:
     fontFamily: "Archivo Narrow Variable, ui-sans-serif, sans-serif"
-    fontSize: "0.83rem"
-    fontWeight: 720
+    fontSize: "0.85rem"
+    fontWeight: 780
     lineHeight: 1.2
-    letterSpacing: "0.08em"
+    letterSpacing: "0.11em"
 rounded:
-  sm: "0.5rem"
-  md: "0.875rem"
+  control: "0.55rem"
+  screen: "clamp(1.2rem, 2.5vw, 2.2rem)"
+  terminal: "clamp(1.6rem, 6vw, 2.4rem)"
 spacing:
   "1": "0.25rem"
   "2": "0.5rem"
@@ -59,204 +56,160 @@ spacing:
   "6": "1.5rem"
   "8": "2rem"
 components:
-  button-primary:
-    backgroundColor: "{colors.signal-orange}"
-    textColor: "{colors.docket-ink}"
+  arcade-action:
+    backgroundColor: "{colors.signal-yellow}"
+    textColor: "{colors.ink}"
     typography: "{typography.body}"
-    rounded: "{rounded.sm}"
+    rounded: "999px"
     padding: "0.8rem 1rem"
-    height: "3.25rem"
+    height: "3.5rem"
     width: "100%"
-  button-secondary:
-    backgroundColor: "{colors.docket-ink}"
-    textColor: "{colors.docket-paper}"
-    typography: "{typography.body}"
-    rounded: "{rounded.sm}"
-    padding: "0.8rem 1rem"
-    height: "3.25rem"
-  input-text:
-    backgroundColor: "oklch(0.97 0.018 85)"
-    textColor: "{colors.docket-ink}"
-    typography: "{typography.body}"
-    rounded: "{rounded.sm}"
-    padding: "0.85rem"
-  controller-card:
-    backgroundColor: "{colors.docket-paper}"
-    textColor: "{colors.docket-ink}"
-    rounded: "0"
-    padding: "clamp(1rem, 5vw, 1.75rem)"
+  answer-key:
+    backgroundColor: "{colors.evidence-cream}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.control}"
+    height: "3.75rem"
+  crt-screen:
+    backgroundColor: "{colors.screen}"
+    textColor: "{colors.truth-phosphor}"
+    rounded: "{rounded.screen}"
+  field-terminal:
+    backgroundColor: "{colors.chassis-orange}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.terminal}"
     width: "min(100%, 34rem)"
-  split-flap:
-    backgroundColor: "{colors.dormant-flap}"
-    textColor: "{colors.flap-ivory}"
-    typography: "{typography.display}"
-    rounded: "0"
-    padding: "0 0.08em"
 ---
 
 # Design System: Bluff Bureau
 
 ## Overview
 
-**Creative North Star: "The Truth Routing Board"**
+**The Lie-Processing Machine**
 
-Bluff Bureau feels like a late-twentieth-century records office whose fixed mechanical information board has been repurposed for improbable facts. Midnight-cobalt enamel, split-flap typography, signal lamps, and stamped paper slips make each phase feel processed by one coherent apparatus rather than arranged as a dashboard of interchangeable cards.
+Grounded direction 6, concept seed `90460392`.
 
-The shared display is monumental, public, and passive; a single prompt, tally, or reveal owns the room at a time. Player controllers translate the same world into tactile paper dockets with one dominant private task. Motion is sparse and mechanical: lamps pulse in steps and truth cells settle into place, while reduced-motion users receive the same hierarchy without animation.
+Bluff Bureau is a saturated late-1970s microfilm evidence theater: a single orange machine that scans strange facts, feeds candidate answers through a CRT, and certifies one ridiculous truth in phosphor green. It should be remembered as a game-show prop, never as a website with a themed background.
+
+The shared display is one passive physical apparatus. Its identity rail, persistent film drive, CRT glass, evidence field, result feed, lamps, and knobs remain in place while the game state changes inside the machine. A phone becomes a chunky Bureau field terminal with an antenna, inset display well, arcade answer bank, confidence controls, and one large lock button.
 
 **Key Characteristics:**
 
-- Fixed information-board topology with one decisive state.
-- Dark enamel public surfaces paired with warm paper controllers.
-- Condensed, uppercase display typography with readable humanist body copy.
-- Orange communicates action, mint certifies truth, and magenta marks Bureau identity.
-- Mechanical depth from hard offsets, inset seams, and restrained ambient lift.
+- A committed orange chassis owns the screen, with a subtle authored enamel texture rather than a flat app background.
+- Near-black CRT glass contains public game state. Scanlines, graticule-like rings, glow, and mechanical seams suggest an operating instrument.
+- Cream evidence stock carries answer text; acid phosphor green is exclusive to truth and confirmed state.
+- Signal yellow identifies attention and primary action. Cyan labels measurement. Magenta marks Bureau identity and choice lamps.
+- Steel screws, reels, film paths, bezels, and knobs make depth structural. They are machine parts, not generic decoration.
 
 ## Colors
 
-The palette combines nocturnal institutional enamel with warm paper, bright operational signals, and one unmistakable truth color.
-
-### Primary
-
-- **Signal Orange:** The dominant action and live-status color for controller commitments, timers, vote keys, score emphasis, and active file lamps.
-- **Pressed Orange:** The physical underside of orange controls and a darker reconnect or pressed-state signal.
-
-### Secondary
-
-- **Truth Mint:** Reserved for verified truth, successful confirmation, score value, focus visibility, and the winning result.
-- **Bureau Magenta:** A sparse identity seal used for the B mark, player seals, and rank accents.
-
-### Tertiary
-
-- **Alert Red:** Communicates recoverable validation errors without taking over the screen.
-
-### Neutral
-
-- **Midnight Void:** The deepest page ground, board rails, and mechanical seams.
-- **Cobalt Enamel:** The shared-display chassis and controller surround.
-- **Raised Enamel:** Public content panels lifted from the chassis.
-- **Dormant Flap:** Individual split-flap cells, answer rows, and dark display modules.
-- **Flap Edge:** Inset seams and unlit mechanical indicators.
-- **Docket Paper:** Controller sheets, labels, and light badges.
-- **Docket Shadow:** Hard offset under paper tabs.
-- **Flap Ivory:** High-contrast split-flap lettering and public primary text.
-- **Muted Slate:** Secondary public text, dividers, and subdued role labels.
-- **Docket Ink:** Controller text and the reversed surface used for selected options.
+The saturated palette separates physical machine parts from operational signals. Chassis orange owns the hardware; night, screen, and steel neutrals construct the CRT and mechanisms; evidence cream carries answer text; phosphor green certifies truth; yellow signals attention and action; cyan labels measurement; magenta identifies the Bureau; alert red marks errors; and focus lime is reserved for visible keyboard focus.
 
 ### Named Rules
 
-**The Signal Has Meaning Rule.** Orange means act or attend, mint means verified or successful, and magenta means Bureau identity; do not use these accents as interchangeable decoration.
-
-**The One Enamel Chassis Rule.** Public screens stay within the midnight-cobalt family so the changing state reads as one machine, not a new page.
+**Truth Owns Phosphor.** Acid green certifies truth, success, and confirmed state. Yellow means act or attend, cyan means measurement, and magenta identifies the Bureau.
 
 ## Typography
 
-**Display Font:** Archivo Narrow Variable (with ui-sans-serif fallback)
+Archivo Narrow Variable is the machine voice: titles, prompts, counters, answer paddles, score drums, and instrument labels. Source Sans 3 Variable is the human voice: explanations, helper text, errors, and controller detail.
 
-**Body Font:** Source Sans 3 Variable (with ui-sans-serif and system-ui fallbacks)
-
-**Label Font:** Archivo Narrow Variable (with ui-sans-serif fallback)
-
-**Character:** Archivo Narrow gives prompts, counters, and labels the compressed certainty of mechanical records. Source Sans 3 keeps explanations and controller instructions calm, legible, and conversational.
-
-### Hierarchy
-
-- **Display:** Monumental shared-display prompts and game titles; uppercase split-flap treatment may divide every character into its own cell.
-- **Headline:** Controller phase titles and decisive end-state names; compact line-height keeps the task above the fold.
-- **Title:** Private prompts, truth slips, and mid-scale information that must read quickly on a phone.
-- **Body:** Instructions, explanations, helper copy, and form content; keep descriptive text near 38–55 characters per line where the layout permits.
-- **Label:** Uppercase file names, rail labels, stamps, and status tags with deliberate tracking.
-
-### Named Rules
-
-**The Machine Speaks Narrow Rule.** Use Archivo Narrow for anything the Bureau declares; use Source Sans 3 for anything that explains what a person should do.
+Public declarations are condensed, heavy, and built for across-room reading. Controller inputs remain at least 16 px. Dynamic numbers use tabular figures. Headings balance; helper copy wraps naturally.
 
 ## Layout
 
-The shared display uses a fixed three-row frame: a top identity rail, one dominant middle state, and a bottom signal strip. Its central state uses asymmetric two- or three-column layouts so prompts and truth reveals remain dominant while progress, rosters, and standings stay visibly subordinate. Public padding scales fluidly from 1rem to 2.5rem, with a compact-height mode below 48rem.
+### Host Topology
 
-At 64rem, dense result and instruction layouts shed secondary columns; at 46rem, public layouts become a single flowing column and the frame may scroll. Controllers use one centered paper docket up to 34rem wide, or 42rem for the voting surface, with safe-area-aware outer spacing. At 23.5rem, controller padding and gaps tighten and confidence choices stack without reducing tap size.
+The host keeps three permanent layers:
 
-Spacing follows a quarter-rem base with deliberate steps at 0.25rem, 0.5rem, 0.75rem, 1rem, 1.5rem, and 2rem. Use close gaps for machine parts and result rows; use the larger rhythm between controller tasks.
+1. The top instrument rail identifies the game, exposes the persistent reel-to-reel film drive, shows machine activity, and names the file.
+2. The CRT owns all changing game state. One prompt, answer bank, truth reveal, or podium dominates at a time.
+3. The lower control deck carries three signal lamps, a plain-language status annunciator, and two physical knobs.
 
-## Elevation & Depth
+The host must contain no buttons, links, or focusable controls. At 1280×720 it never scrolls. Below 46 rem, the machine reflows to one column and may scroll rather than clip content.
 
-Depth is structural rather than atmospheric. Public panels use a restrained dark ambient shadow plus an inset enamel seam; paper controls use hard offset shadows that read as stacked physical slips. Selected answers reverse tonally and gain an inset orange boundary instead of floating upward.
+### Controller Topology
 
-### Shadow Vocabulary
+The controller is a handheld object, not a paper form. Orange molded casing, cream edge piping, screws, antenna, identity display, and the terminal maker plate persist across states. Private tasks sit in one dark inset screen well.
 
-- **Raised Enamel** (`0 0.75rem 1.75rem oklch(0.05 0.015 252 / 0.38), 0 0.125rem 0.25rem oklch(0.03 0.01 252 / 0.55)`): Ambient lift for large public panels and controller dockets.
-- **Paper Offset** (`0.25rem 0.3rem 0 var(--paper-dark)`): A crisp physical underlayer beneath paper tabs and stamps.
-- **Controller Offset** (`0.65rem 0.75rem 0 var(--orange-dark)`): A strong orange edge that separates the private paper controller from its enamel surround.
-- **Flap Seam** (`inset 0 0 0 0.05em oklch(0.39 0.025 250 / 0.48)`): Internal construction line for individual split-flap cells.
+At phone width, voting uses a two-row horizontal answer bank with a visible scrollbar/continuation cue. Confidence and Lock vote remain fully visible at 375×812. Every answer tile and action preserves a 44 px minimum hit area; radio inputs stay native and cover their visible labels.
 
 ### Named Rules
 
-**The Mechanical Depth Rule.** Elevation must describe a part, seam, layer, or press state; never add a soft decorative glow merely to make a surface feel premium.
+**One Machine, Many States.** Never frame phases as separate pages or equal dashboard cards. The chassis stays; its active instrument changes.
+
+**The Phone Is a Controller.** Keep the full decision architecture visible or unmistakably reachable. Prefer key banks, dials, and action controls over long form stacks.
+
+## Elevation & Depth
+
+Steel screws, reels, film paths, bezels, and knobs make depth structural. Hard evidence offsets, inset screen wells, and the layered machine-chassis shadow explain how each part is assembled. Hardware details are machine parts, not generic decoration.
+
+### Shadow Vocabulary
+
+- **Machine Chassis:** Ambient weight plus a bright molded top edge and a dark orange underside.
+- **Evidence Offset:** A hard pressed-orange underlayer beneath evidence strips and status plates.
+- **CRT Inset:** Steel bezel construction and deep inner glass falloff.
+
+### Named Rules
+
+**Hardware Must Do a Job.** Reels route evidence, lamps show status, knobs terminate the control deck, and paddles carry choices. Do not add generic chrome without a machine role.
 
 ## Shapes
 
-The form language is rectilinear and engineered. Shared-display rails, boards, flap cells, answer rows, stamps, score rows, and paper cards keep square corners. Small rounded corners are reserved for touch controls and text fields, where they improve affordance without softening the information-board identity. Squares and short rectangles repeat as status lamps, player seals, numbered steps, rank plates, and answer keys.
+The physical vocabulary combines large rounded enclosures with precise machine parts. CRT glass and the field terminal use generous rounded shells; reels, bulbs, seals, knobs, and screws are circular; answer evidence and status plates remain rectangular; primary controller actions use an arcade-scale pill.
 
 ## Components
 
-### Buttons
+### Arcade Actions
 
-Buttons feel physical, direct, and unambiguous.
+The signal-yellow primary action is the dominant controller commitment. It preserves a 3.5 rem minimum height, full-pill shape, hard mechanical depth, visible focus-lime outline, and exact 96% press compression. Secondary actions reverse to the night-and-cream palette.
 
-- **Shape:** Gently rounded touch surface using the small radius and a minimum 3.25rem height.
-- **Primary:** Signal orange with docket ink, full width for the main controller commitment, and a hard pressed-orange lower edge.
-- **Hover / Focus:** Maintain the physical edge on hover; use the mint outline for keyboard focus; compress to 96% scale on activation.
-- **Secondary:** Docket ink with paper text and a deeper dark lower edge.
-- **Text:** Transparent, underlined, and visually subordinate for settings or other low-emphasis actions.
+### Answer Keys
 
-### Chips
+Cream native-radio labels form a chunky two-column bank and become a two-row horizontal bank on phone widths. Selection changes the full key to phosphor while preserving the labeled radio target.
 
-Status badges and tabs feel stamped or clipped into the record.
+### CRT Screen
 
-- **Style:** Paper tabs use docket paper, docket ink, uppercase condensed text, and a hard paper offset; role badges reverse to docket ink on controller paper.
-- **State:** Mint stamps are reserved for confirmed truth; spectator and director labels remain literal and text-backed rather than color-only.
+All shared state lives inside one rounded dark screen with scanlines, subtle optical reflection, instrument glow, and a steel inset bezel. The host remains passive.
 
-### Cards / Containers
+### Field Terminal
 
-Containers feel like machine panels or paper sheets, never generic rounded cards.
+Orange molded casing, cream edge piping, screws, antenna, identity display, inset screen well, and maker plate persist across every private controller state.
 
-- **Corner Style:** Square for panels and paper controller dockets.
-- **Background:** Raised enamel for public modules; docket paper for private controller surfaces.
-- **Shadow Strategy:** Use structural shadow vocabulary from Elevation & Depth.
-- **Border:** Inset flap-edge seams define public panel construction.
-- **Internal Padding:** Fluid public padding and a 1rem-to-1.75rem controller range.
+### Film Drive
 
-### Inputs / Fields
+The reel-to-reel evidence mechanism remains visible in the host instrument rail across phases.
 
-Inputs resemble fields printed onto a docket.
+### Motion
 
-- **Style:** Warm near-white paper, a two-pixel docket-ink stroke, the small radius, and a full 1rem text size that avoids mobile zoom.
-- **Focus:** A three-pixel truth-mint outline with a three-pixel offset.
-- **Error / Disabled:** Error copy is explicit alert red; disabled commitments remain visible, lose their hard shadow, and communicate pending work in their label.
+Motion behaves like machinery and is enabled only under `prefers-reduced-motion: no-preference`.
 
-### Split-Flap Board
+- Film reels rotate continuously at a slow mechanical cadence.
+- The scanner line traverses the prompt field while responses are being filed.
+- Results arrive in three beats: truth burst and flap settle, evidence strips feed after 1.05 s, then score drums engage after 2.25 s.
+- Signal lamps pulse in steps. Buttons compress to exactly 96% on press.
 
-Every declared character sits in a dark rectangular cell with an ivory face, an inset construction seam, and a horizontal hinge through its midpoint. Cell groups wrap at natural spaces and scale fluidly to preserve one dominant statement. Only a truth reveal settles the cells with a brief perspective rotation, and that motion is omitted when reduced motion is requested.
-
-### Answer Options
-
-Controller options are full-width docket rows with a square letter plate. Selection reverses the row to docket ink, inverts the letter plate to signal orange, and adds an inset orange boundary; voting state is always visible without relying on color alone because the checked control remains semantically connected to its label.
+Reduced-motion users receive the same complete state with no dependency on animation.
 
 ## Do's and Don'ts
 
+### Accessibility and Stress Rules
+
+- Native interactive elements, explicit labels, visible focus rings, and literal error recovery remain mandatory.
+- Status never depends on color alone; text, state, and shape reinforce every important signal.
+- All optional motion is suppressed for reduced-motion users.
+- Public copy favors across-room scale. Dense attribution remains secondary but must not clip.
+- Controller layout reflows without horizontal page overflow at 320 px; intentional answer-bank scrolling stays inside the control.
+- Forced-colors mode restores structural borders around controls, signals, and the CRT.
+
 ### Do:
 
-- **Do** give each surface one dominant prompt, task, tally, or reveal.
-- **Do** preserve the fixed public rail/content/signal-strip topology across every game phase.
-- **Do** use paper material for private controller work and enamel material for public room state.
-- **Do** keep controller touch targets at least 44 CSS pixels and preserve the mint keyboard-focus treatment.
-- **Do** keep state language literal alongside lamps, colors, stamps, and animation.
+- **Do** make the host read as a game-show prop from one glance.
+- **Do** keep the film drive and chassis visible across every phase.
+- **Do** stage reveals in legible beats.
+- **Do** retain the saturated palette and hard physical offsets.
 
 ### Don't:
 
-- **Don't** turn the public display into a dashboard of equal cards or add host controls to the passive surface.
-- **Don't** scatter orange, mint, or magenta as decoration; each accent has a durable semantic job.
-- **Don't** round public panels, split-flap cells, stamps, score rows, or answer rows into soft app cards.
-- **Don't** use body copy in the condensed display face or long explanations in all caps.
-- **Don't** add gradients, glass effects, ornamental glow, or continuous motion that weakens the mechanical apparatus.
+- **Don't** return to navy dashboard panels, paper document cards, or website hero patterns.
+- **Don't** hide controller confidence or the lock action below an unbounded answer list.
+- **Don't** use animation as the only representation of state.
+- **Don't** add host interactions or move authority outside the controller.

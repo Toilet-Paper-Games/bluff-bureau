@@ -23,6 +23,7 @@ function header(view: ControllerViewModel): string {
   return `<header class="controller-header">
     <div class="player-seal" aria-hidden="true">${html(view.playerName.slice(0, 1).toUpperCase())}</div>
     <div><strong>${html(view.playerName)}</strong><span>${view.playerScore.toLocaleString()} points</span></div>
+    <div class="terminal-leds" aria-hidden="true"><i></i><i></i><i></i></div>
     ${view.isAuthority ? '<span class="director-badge">Room director</span>' : ""}
   </header>`;
 }
@@ -106,12 +107,14 @@ function voting(view: ControllerViewModel, selectedChoice: string, confidence: "
       <fieldset class="answer-fieldset"><legend>Choose one answer</legend>
         <div class="answer-options">${choices.map(({ choice, boardIndex }) => `<label class="answer-option"><input type="radio" name="choice" value="${html(choice.id)}" ${selectedChoice === choice.id ? "checked" : ""}/><span class="answer-letter">${String.fromCharCode(65 + boardIndex)}</span><strong>${html(choice.text)}</strong></label>`).join("")}</div>
       </fieldset>
-      <fieldset class="confidence-fieldset"><legend>How confident are you?</legend>
-        <label><input type="radio" name="confidence" value="sure" ${confidence === "sure" ? "checked" : ""}/><span><strong>Sure</strong><small>Normal points</small></span></label>
-        <label><input type="radio" name="confidence" value="certain" ${confidence === "certain" ? "checked" : ""}/><span><strong>Certain</strong><small>2× reward · 2× risk</small></span></label>
-      </fieldset>
-      ${errorText(view)}
-      <button class="primary-action" type="submit" data-action="submit-vote" ${!selectedChoice || view.writePending ? "disabled" : ""}>${view.writePending ? "Locking…" : "Lock vote"}</button>
+      <div class="vote-dock">
+        <fieldset class="confidence-fieldset"><legend>Set your confidence</legend>
+          <label><input type="radio" name="confidence" value="sure" ${confidence === "sure" ? "checked" : ""}/><span><strong>Sure</strong><small>Normal points</small></span></label>
+          <label><input type="radio" name="confidence" value="certain" ${confidence === "certain" ? "checked" : ""}/><span><strong>Certain</strong><small>2× reward · 2× risk</small></span></label>
+        </fieldset>
+        ${errorText(view)}
+        <button class="primary-action" type="submit" data-action="submit-vote" ${!selectedChoice || view.writePending ? "disabled" : ""}>${view.writePending ? "Locking…" : "Lock vote"}</button>
+      </div>
     </form>
   </section>`;
 }
@@ -186,7 +189,7 @@ export class ControllerSurfaceRenderer {
       : view.phase === "results" ? results(view)
       : view.phase === "round-break" ? roundBreak(view)
       : gameOver(view);
-    this.root.innerHTML = `<main class="controller-shell">${content}</main>`;
+    this.root.innerHTML = `<main class="controller-shell"><div class="terminal-antenna" aria-hidden="true"><i></i></div>${content}<div class="terminal-brand" aria-hidden="true"><span>B</span> Bureau field terminal</div></main>`;
     this.lastViewKey = viewKey;
   }
 

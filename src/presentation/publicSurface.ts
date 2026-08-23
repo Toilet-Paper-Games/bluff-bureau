@@ -18,18 +18,21 @@ function scoreboard(rows: ScoreRow[], compact = false): string {
 function shell(view: PublicViewModel, content: string, status: string): string {
   return `<div class="public-frame phase-${view.phase}">
     <header class="board-rail">
-      <div class="brand-lockup"><span class="brand-mark" aria-hidden="true">B</span><strong>Bluff Bureau</strong></div>
-      <div class="rail-file">${view.roundNumber ? `${view.roundNumber === view.totalRounds ? "Final file" : "File"} ${String(view.roundNumber).padStart(2, "0")}` : "Intake"}</div>
+      <div class="brand-lockup" role="heading" aria-level="2"><span class="brand-mark" aria-hidden="true">B</span><span><small>Department of dubious facts</small><strong>Bluff Bureau</strong></span></div>
+      <div class="film-drive" aria-hidden="true"><i></i><span></span><i></i></div>
+      <div class="machine-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="rail-file" role="heading" aria-level="2">${view.roundNumber ? `${view.roundNumber === view.totalRounds ? "Final file" : "File"} ${String(view.roundNumber).padStart(2, "0")}` : "Intake"}</div>
       ${view.isSpectator ? '<div class="spectator-badge">Spectator feed</div>' : ""}
     </header>
-    <section class="public-content">${content}</section>
-    <footer class="signal-strip"><span class="signal-dot" aria-hidden="true"></span>${html(status)}</footer>
+    <section class="public-content"><div class="screen-glass">${content}</div></section>
+    <footer class="signal-strip"><div class="signal-lamps" aria-hidden="true"><i></i><i></i><i></i></div><span><span class="signal-dot" aria-hidden="true"></span>${html(status)}</span><div class="signal-knobs" aria-hidden="true"><i></i><i></i></div></footer>
+    <div class="machine-screws" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   </div>`;
 }
 
 function timer(deadlineAt: number | null): string {
   const seconds = remainingSeconds(deadlineAt);
-  return seconds === null ? "" : `<div class="timer" data-timer aria-label="${seconds} seconds remaining">${flapText(String(seconds).padStart(2, "0"), "timer-flaps")}</div>`;
+  return seconds === null ? "" : `<div class="timer" data-timer aria-label="${seconds} seconds remaining"><span aria-hidden="true">${flapText(String(seconds).padStart(2, "0"), "timer-flaps")}</span></div>`;
 }
 
 function loading(view: PublicViewModel): string {
@@ -42,12 +45,13 @@ function lobby(view: PublicViewModel): string {
     view,
     `<div class="lobby-grid">
       <div class="hero-board">
-        <p class="paper-tab">Bureau intake</p>
+        <div class="microfilm-reels" aria-hidden="true"><i></i><span></span><i></i></div>
         <h1>${flapText("BLUFF BUREAU", "title-flaps")}</h1>
         <p class="hero-copy">Invent a believable lie. Find the ridiculous truth. Decide how certain you really are.</p>
+        <div class="confidence-dial" aria-hidden="true"><span>Sure</span><i></i><span>Certain</span></div>
       </div>
-      <aside class="roster-panel">
-        <p class="section-label">Agents checked in</p>
+      <aside class="roster-panel" aria-label="Players online">
+        <p class="section-label">Players online</p>
         <strong class="roster-count">${count}<span>/8</span></strong>
         <ul class="roster-list">${view.roster.map((player) => `<li class="${player.connected ? "" : "is-disconnected"}"><span class="status-lamp" aria-hidden="true"></span>${html(player.name)}</li>`).join("")}</ul>
       </aside>
@@ -78,9 +82,11 @@ function writing(view: PublicViewModel): string {
     `<div class="case-layout">
       <section class="prompt-stage">
         <p class="paper-tab">${html(view.category)}${view.roundNumber === view.totalRounds ? " · 2× points" : ""}</p>
+        <div class="scanner-line" aria-hidden="true"></div>
         <h1>${flapText(view.prompt.toUpperCase(), "prompt-flaps")}</h1>
+        <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </section>
-      <aside class="progress-panel">
+      <aside class="progress-panel" aria-label="Response progress">
         ${timer(view.deadlineAt)}
         <p class="section-label">Responses filed</p>
         <strong class="progress-count">${view.submittedCount}<span>/${view.roster.length}</span></strong>
@@ -98,9 +104,9 @@ function voting(view: PublicViewModel): string {
       <section class="choice-stage">
         <p class="paper-tab">Which answer is true?</p>
         <h1 class="compact-prompt">${html(view.prompt)}</h1>
-        <ol class="choice-board">${view.choices.map((choice, index) => `<li><span class="choice-key">${String.fromCharCode(65 + index)}</span>${flapText(choice.text.toUpperCase(), "choice-flaps")}</li>`).join("")}</ol>
+        <ol class="choice-board">${view.choices.map((choice, index) => `<li style="--choice-index:${index}"><span class="choice-key">${String.fromCharCode(65 + index)}</span>${flapText(choice.text.toUpperCase(), "choice-flaps")}<span class="choice-bulb" aria-hidden="true"></span></li>`).join("")}</ol>
       </section>
-      <aside class="progress-panel">
+      <aside class="progress-panel" aria-label="Voting progress">
         ${timer(view.deadlineAt)}
         <p class="section-label">Votes locked</p>
         <strong class="progress-count">${view.votedCount}<span>/${view.roster.length}</span></strong>
@@ -129,6 +135,7 @@ function results(view: PublicViewModel): string {
     `<div class="results-layout">
       <section class="truth-stage">
         <p class="truth-stamp">The truth</p>
+        <div class="truth-burst" aria-hidden="true"></div>
         <h1>${flapText(result.caseFile.truth.toUpperCase(), "truth-flaps")}</h1>
         <p class="explanation">${html(result.caseFile.explanation)}</p>
         <p class="source-note">Source: ${html(result.caseFile.sourceLabel)}</p>
