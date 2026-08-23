@@ -16,15 +16,20 @@ function scoreboard(rows: ScoreRow[], compact = false): string {
 }
 
 function shell(view: PublicViewModel, content: string, status: string): string {
+  const roundTrack = Array.from({ length: view.totalRounds }, (_, index) => {
+    const round = index + 1;
+    const state = round < view.roundNumber ? "is-done" : round === view.roundNumber ? "is-current" : "";
+    return `<span class="${state}">${round}</span>`;
+  }).join("");
   return `<div class="public-frame phase-${view.phase}">
     <header class="board-rail">
       <div class="brand-lockup" role="heading" aria-level="2"><span class="brand-mark" aria-hidden="true">B</span><span><small>Department of dubious facts</small><strong>Bluff Bureau</strong></span></div>
       <div class="film-drive" aria-hidden="true"><i></i><span></span><i></i></div>
-      <div class="machine-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="round-track" aria-hidden="true">${roundTrack}</div>
       <div class="rail-file" role="heading" aria-level="2">${view.roundNumber ? `${view.roundNumber === view.totalRounds ? "Final file" : "File"} ${String(view.roundNumber).padStart(2, "0")}` : "Intake"}</div>
       ${view.isSpectator ? '<div class="spectator-badge">Spectator feed</div>' : ""}
     </header>
-    <section class="public-content"><div class="screen-glass">${content}</div></section>
+    <section class="public-content"><div class="marquee-lights" aria-hidden="true">${"<i></i>".repeat(14)}</div><div class="screen-glass">${content}</div></section>
     <footer class="signal-strip"><div class="signal-lamps" aria-hidden="true"><i></i><i></i><i></i></div><span><span class="signal-dot" aria-hidden="true"></span>${html(status)}</span><div class="signal-knobs" aria-hidden="true"><i></i><i></i></div></footer>
     <div class="machine-screws" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   </div>`;
@@ -104,7 +109,7 @@ function voting(view: PublicViewModel): string {
       <section class="choice-stage">
         <p class="paper-tab">Which answer is true?</p>
         <h1 class="compact-prompt">${html(view.prompt)}</h1>
-        <ol class="choice-board">${view.choices.map((choice, index) => `<li style="--choice-index:${index}"><span class="choice-key">${String.fromCharCode(65 + index)}</span>${flapText(choice.text.toUpperCase(), "choice-flaps")}<span class="choice-bulb" aria-hidden="true"></span></li>`).join("")}</ol>
+        <ol class="choice-board">${view.choices.map((choice, index) => `<li class="answer-color-${index % 4}" style="--choice-index:${index}"><span class="choice-key">${String.fromCharCode(65 + index)}</span>${flapText(choice.text.toUpperCase(), "choice-flaps")}<span class="choice-bulb" aria-hidden="true"></span></li>`).join("")}</ol>
       </section>
       <aside class="progress-panel" aria-label="Voting progress">
         ${timer(view.deadlineAt)}
@@ -117,10 +122,11 @@ function voting(view: PublicViewModel): string {
   );
 }
 
-function resultRow(result: ChoiceResult, view: PublicViewModel): string {
+function resultRow(result: ChoiceResult, view: PublicViewModel, index: number): string {
   const author = result.authorId ? view.roster.find((player) => player.id === result.authorId)?.name : undefined;
   const voters = result.voterIds.map((id) => view.roster.find((player) => player.id === id)?.name ?? "Player");
-  return `<li class="result-row result-${result.kind}">
+  return `<li class="result-row result-${result.kind} answer-color-${index % 4}" style="--result-index:${index}">
+    <span class="result-key" aria-hidden="true">${String.fromCharCode(65 + index)}</span>
     <div class="result-answer"><strong>${html(result.text)}</strong><span>${result.kind === "truth" ? "The truth" : result.kind === "bureau-decoy" ? "Bureau decoy" : `Filed by ${html(author ?? "Unknown")}`}</span></div>
     <div class="result-route">${voters.length ? `${voters.map(html).join(", ")} ${voters.length === 1 ? "voted" : "voted"}` : "No votes"}</div>
     <strong class="result-points">${result.pointsForAuthor ? `+${result.pointsForAuthor.toLocaleString()}` : result.kind === "truth" ? `${result.voterIds.length} found it` : "+0"}</strong>
@@ -140,7 +146,7 @@ function results(view: PublicViewModel): string {
         <p class="explanation">${html(result.caseFile.explanation)}</p>
         <p class="source-note">Source: ${html(result.caseFile.sourceLabel)}</p>
       </section>
-      <ol class="result-ledger">${result.choices.map((choice) => resultRow(choice, view)).join("")}</ol>
+      <ol class="result-ledger">${result.choices.map((choice, index) => resultRow(choice, view, index)).join("")}</ol>
       <aside class="results-score" aria-label="Current standings">${scoreboard(view.scoreboard)}</aside>
     </div>`,
     result.multiplier === 2 ? "Final file · all points doubled" : "Results filed"

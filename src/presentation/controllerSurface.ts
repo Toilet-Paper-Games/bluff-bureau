@@ -102,18 +102,18 @@ function voting(view: ControllerViewModel, selectedChoice: string, confidence: "
   const choices = view.choices
     .map((choice, boardIndex) => ({ choice, boardIndex }))
     .filter(({ choice }) => choice.id !== view.ownChoiceId);
-  return `<section class="controller-card controller-card--wide">${header(view)}${phaseHeader(view, "Find the truth", "Which answer is real?")}
-    <form data-form="vote">
-      <fieldset class="answer-fieldset"><legend>Choose one answer</legend>
-        <div class="answer-options">${choices.map(({ choice, boardIndex }) => `<label class="answer-option"><input type="radio" name="choice" value="${html(choice.id)}" ${selectedChoice === choice.id ? "checked" : ""}/><span class="answer-letter">${String.fromCharCode(65 + boardIndex)}</span><strong>${html(choice.text)}</strong></label>`).join("")}</div>
+  return `<section class="controller-card controller-card--wide controller-card--vote">${header(view)}${phaseHeader(view, "Answer lock", "Which answer is real?")}
+    <form class="vote-console" data-form="vote">
+      <fieldset class="answer-fieldset"><legend class="visually-hidden">Choose one answer</legend><div class="answer-pad-header" aria-hidden="true"><strong>Answer pad</strong><small>Match a key on the shared display</small></div>
+        <div class="answer-options">${choices.map(({ choice, boardIndex }) => `<label class="answer-option answer-color-${boardIndex % 4}"><input type="radio" name="choice" value="${html(choice.id)}" ${selectedChoice === choice.id ? "checked" : ""}/><span class="answer-letter">${String.fromCharCode(65 + boardIndex)}</span><strong>${html(choice.text)}</strong><span class="answer-pip" aria-hidden="true"></span></label>`).join("")}</div>
       </fieldset>
       <div class="vote-dock">
-        <fieldset class="confidence-fieldset"><legend>Set your confidence</legend>
+        <fieldset class="confidence-fieldset"><legend>Power</legend>
           <label><input type="radio" name="confidence" value="sure" ${confidence === "sure" ? "checked" : ""}/><span><strong>Sure</strong><small>Normal points</small></span></label>
           <label><input type="radio" name="confidence" value="certain" ${confidence === "certain" ? "checked" : ""}/><span><strong>Certain</strong><small>2× reward · 2× risk</small></span></label>
         </fieldset>
-        ${errorText(view)}
-        <button class="primary-action" type="submit" data-action="submit-vote" ${!selectedChoice || view.writePending ? "disabled" : ""}>${view.writePending ? "Locking…" : "Lock vote"}</button>
+        <div id="vote-error">${errorText(view)}</div>
+        <button class="primary-action lock-button" type="submit" data-action="submit-vote" aria-label="Lock vote" ${view.writePending ? "disabled" : ""}><strong aria-hidden="true">${view.writePending ? "…" : "LOCK"}</strong><small aria-hidden="true">VOTE</small></button>
       </div>
     </form>
   </section>`;
@@ -189,7 +189,7 @@ export class ControllerSurfaceRenderer {
       : view.phase === "results" ? results(view)
       : view.phase === "round-break" ? roundBreak(view)
       : gameOver(view);
-    this.root.innerHTML = `<main class="controller-shell"><div class="terminal-antenna" aria-hidden="true"><i></i></div>${content}<div class="terminal-brand" aria-hidden="true"><span>B</span> Bureau field terminal</div></main>`;
+    this.root.innerHTML = `<main class="controller-shell"><div class="terminal-antenna" aria-hidden="true"><i></i></div><div class="terminal-grip terminal-grip--left" aria-hidden="true"></div><div class="terminal-grip terminal-grip--right" aria-hidden="true"></div>${content}<div class="terminal-brand" aria-hidden="true"><span>B</span> Bureau game controller</div></main>`;
     this.lastViewKey = viewKey;
   }
 
@@ -213,9 +213,12 @@ export class ControllerSurfaceRenderer {
   private handleChange(event: Event) {
     const target = event.target;
     if (!(target instanceof HTMLInputElement)) return;
-    if (target.name === "choice") this.selectedChoice = target.value;
+    if (target.name === "choice") {
+      this.selectedChoice = target.value;
+      const error = this.root.querySelector("#vote-error .form-error");
+      if (error) error.textContent = "";
+    }
     if (target.name === "confidence" && (target.value === "sure" || target.value === "certain")) this.confidence = target.value;
-    if (target.name === "choice") this.render(true);
   }
 
   private async handleSubmit(event: SubmitEvent) {
@@ -240,7 +243,15 @@ export class ControllerSurfaceRenderer {
       await this.coordinator.submitBluff(value);
       return;
     }
-    if (this.selectedChoice) await this.coordinator.submitVote(this.selectedChoice, this.confidence);
+    if (!this.selectedChoice) {
+      const firstChoice = form.elements.namedItem("choice");
+      const firstInput = firstChoice instanceof RadioNodeList ? firstChoice[0] : firstChoice;
+      if (firstInput instanceof HTMLInputElement) firstInput.focus();
+      const error = this.root.querySelector("#vote-error .form-error");
+      if (error) error.textContent = "Choose an answer before locking your vote.";
+      return;
+    }
+    await this.coordinator.submitVote(this.selectedChoice, this.confidence);
   }
 
   private async handleClick(event: MouseEvent) {

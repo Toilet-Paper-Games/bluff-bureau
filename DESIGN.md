@@ -130,7 +130,7 @@ The host must contain no buttons, links, or focusable controls. At 1280×720 it 
 
 The controller is a handheld object, not a paper form. Orange molded casing, cream edge piping, screws, antenna, identity display, and the terminal maker plate persist across states. Private tasks sit in one dark inset screen well.
 
-At phone width, voting uses a two-row horizontal answer bank with a visible scrollbar/continuation cue. Confidence and Lock vote remain fully visible at 375×812. Every answer tile and action preserves a 44 px minimum hit area; radio inputs stay native and cover their visible labels.
+At phone width, voting uses a fixed two-column by four-row answer pad. All eight possible choices, confidence, and the circular Lock vote control fit together at 375×812 without horizontal or page scrolling. Every answer tile and action preserves a 44 px minimum hit area; radio inputs stay native and cover their visible labels.
 
 ### Named Rules
 
@@ -160,11 +160,11 @@ The physical vocabulary combines large rounded enclosures with precise machine p
 
 ### Arcade Actions
 
-The signal-yellow primary action is the dominant controller commitment. It preserves a 3.5 rem minimum height, full-pill shape, hard mechanical depth, visible focus-lime outline, and exact 96% press compression. Secondary actions reverse to the night-and-cream palette.
+The signal-yellow primary action is the dominant controller commitment. General actions use chunky rectangular hardware; voting ends with a circular red Lock vote button. Both preserve hard mechanical depth, visible focus-lime outlines, and exact 96% press compression. Secondary actions reverse to the night-and-cream palette.
 
 ### Answer Keys
 
-Cream native-radio labels form a chunky two-column bank and become a two-row horizontal bank on phone widths. Selection changes the full key to phosphor while preserving the labeled radio target.
+Four color-mapped native-radio keys form a fixed two-column arcade pad. Letter tokens, labels, and selection pips map directly to the shared display, so status never depends on color alone. The full eight-choice pad remains visible on phone widths without internal scrolling.
 
 ### CRT Screen
 
@@ -197,7 +197,7 @@ Reduced-motion users receive the same complete state with no dependency on anima
 - Status never depends on color alone; text, state, and shape reinforce every important signal.
 - All optional motion is suppressed for reduced-motion users.
 - Public copy favors across-room scale. Dense attribution remains secondary but must not clip.
-- Controller layout reflows without horizontal page overflow at 320 px; intentional answer-bank scrolling stays inside the control.
+- Controller layout has no horizontal page or answer-pad overflow at 320 px; all possible voting choices remain visible in the fixed key matrix.
 - Forced-colors mode restores structural borders around controls, signals, and the CRT.
 
 ### Do:

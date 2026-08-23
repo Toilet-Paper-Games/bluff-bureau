@@ -121,3 +121,31 @@ test("a controller reconnects and room-director authority transfers safely", asy
   await expect(host.locator(".phase-writing")).toBeVisible();
   await expect(host.locator("button, input, textarea, select, a[href], [tabindex]")).toHaveCount(0);
 });
+
+test("maximum voting choices fit the phone without horizontal scrolling", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/gallery.html?surface=controller&scenario=max-voting&player=p1");
+
+  await expect(page.getByRole("heading", { name: "Which answer is real?" })).toBeVisible();
+  await expect(page.locator(".answer-option")).toHaveCount(8);
+  await expect(page.getByRole("button", { name: "Lock vote" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Lock vote" }).click();
+  await expect(page.getByText("Choose an answer before locking your vote.")).toBeVisible();
+  await page.locator('.answer-option input[name="choice"]').last().check();
+  await expect(page.getByText("Choose an answer before locking your vote.")).toBeHidden();
+
+  const overflow = await page.evaluate(() => {
+    const answerBank = document.querySelector<HTMLElement>(".answer-options");
+    if (!answerBank) throw new Error("Missing answer bank.");
+    return {
+      page: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      answerBank: answerBank.scrollWidth - answerBank.clientWidth,
+      lockBottom: document.querySelector<HTMLElement>('[data-action="submit-vote"]')?.getBoundingClientRect().bottom
+    };
+  });
+
+  expect(overflow.page).toBe(0);
+  expect(overflow.answerBank).toBe(0);
+  expect(overflow.lockBottom).toBeLessThanOrEqual(812);
+});
