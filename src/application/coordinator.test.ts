@@ -78,3 +78,18 @@ test("authority retries after a stale shared revision and preserves the newer sn
   expect(runtime.rejections).toHaveLength(1);
   expect(coordinator.snapshot().lastError).toBeNull();
 });
+
+test("a controller retries its intent at the player-state revision returned by production", async () => {
+  const runtime = authorityRuntime(startRound(
+    createInitialState("session", participants),
+    { roundId: "round-1", caseFile: bureauContent.forRound(1, "session", random), deadlineAt: 60_000 }
+  ).state);
+  runtime.rejectNextPlayer({ status: "rejected", reason: "stale-revision", revision: 41, message: "Refresh before retrying." });
+  const coordinator = new GameCoordinator({ runtime, clock: new FakeClock(), random, ids, prompts: bureauContent });
+  coordinator.start();
+
+  expect(await coordinator.submitBluff("a revision-safe lie")).toMatchObject({ status: "applied", revision: 42 });
+  expect(runtime.playerWrites.map((write) => write.expectedRevision)).toEqual([0, 41]);
+  expect(runtime.rejections).toHaveLength(1);
+  expect(coordinator.snapshot().lastError).toBeNull();
+});

@@ -74,7 +74,7 @@ function instructions(view: ControllerViewModel): string {
   </section>`;
 }
 
-function writing(view: ControllerViewModel): string {
+function writing(view: ControllerViewModel, draft: string): string {
   const submitted = view.receipt?.status === "accepted" && view.receipt.intentId.startsWith("submit-bluff");
   return `<section class="controller-card">${header(view)}${phaseHeader(view, `${view.category}${view.roundNumber === view.totalRounds ? " · 2× points" : ""}`, submitted ? "Bluff filed" : "File a believable lie")}
     <div class="phone-prompt">${html(view.prompt)}</div>
@@ -82,10 +82,10 @@ function writing(view: ControllerViewModel): string {
       ? `<div class="submitted-state" role="status"><span aria-hidden="true">✓</span><strong>Confirmed</strong><p>Your answer is sealed until voting opens.</p></div>`
       : `<form data-form="bluff" novalidate>
           <label for="bluff-answer">Your false answer</label>
-          <textarea id="bluff-answer" name="bluff" maxlength="36" rows="3" aria-describedby="bluff-hint bluff-error" placeholder="Make it plausible…"></textarea>
-          <div class="field-meta"><span id="bluff-hint">2–36 characters</span><output data-count aria-label="Character count">0/36</output></div>
+          <textarea id="bluff-answer" name="bluff" maxlength="36" rows="3" aria-describedby="bluff-hint bluff-error" placeholder="Make it plausible…">${html(draft)}</textarea>
+          <div class="field-meta"><span id="bluff-hint">2–36 characters</span><output data-count aria-label="Character count">${Array.from(draft).length}/36</output></div>
           <div id="bluff-error">${errorText(view)}</div>
-          <button class="primary-action" type="submit" ${view.writePending ? "disabled" : ""}>${view.writePending ? "Filing…" : "File bluff"}</button>
+          <button class="primary-action" type="submit" data-action="submit-bluff" ${view.writePending ? "disabled" : ""}>${view.writePending ? "Filing…" : "File bluff"}</button>
         </form>`}
     ${view.isAuthority ? '<button class="text-action" type="button" data-action="settings">Room settings</button>' : ""}
   </section>`;
@@ -111,7 +111,7 @@ function voting(view: ControllerViewModel, selectedChoice: string, confidence: "
         <label><input type="radio" name="confidence" value="certain" ${confidence === "certain" ? "checked" : ""}/><span><strong>Certain</strong><small>2× reward · 2× risk</small></span></label>
       </fieldset>
       ${errorText(view)}
-      <button class="primary-action" type="submit" ${!selectedChoice || view.writePending ? "disabled" : ""}>${view.writePending ? "Locking…" : "Lock vote"}</button>
+      <button class="primary-action" type="submit" data-action="submit-vote" ${!selectedChoice || view.writePending ? "disabled" : ""}>${view.writePending ? "Locking…" : "Lock vote"}</button>
     </form>
   </section>`;
 }
@@ -146,8 +146,10 @@ export class ControllerSurfaceRenderer {
   private unsubscribe?: () => void;
   private interval?: number;
   private coordinator?: GameCoordinator;
+  private bluffDraft = "";
   private selectedChoice = "";
   private confidence: "sure" | "certain" = "sure";
+  private lastViewKey = "";
 
   constructor(private readonly root: HTMLElement) {
     this.root.addEventListener("input", (event) => this.handleInput(event));
@@ -158,6 +160,7 @@ export class ControllerSurfaceRenderer {
 
   connect(coordinator: GameCoordinator): void {
     this.coordinator = coordinator;
+    this.lastViewKey = "";
     this.unsubscribe?.();
     this.unsubscribe = coordinator.subscribe(() => this.render());
     this.interval = window.setInterval(() => this.updateTimer(), 1_000);
@@ -167,20 +170,24 @@ export class ControllerSurfaceRenderer {
     if (this.interval) window.clearInterval(this.interval);
   }
 
-  private render() {
+  private render(force = false) {
     if (!this.coordinator) return;
     const view = controllerView(this.coordinator.snapshot());
+    const viewKey = JSON.stringify(view);
+    if (!force && viewKey === this.lastViewKey) return;
+    if (view.phase !== "writing") this.bluffDraft = "";
     if (view.phase !== "voting") this.selectedChoice = "";
     const content = view.phase === "loading" ? loading(view)
       : !view.isConnected ? reconnecting(view)
       : view.phase === "lobby" ? lobby(view)
       : view.phase === "instructions" ? instructions(view)
-      : view.phase === "writing" ? writing(view)
+      : view.phase === "writing" ? writing(view, this.bluffDraft)
       : view.phase === "voting" ? voting(view, this.selectedChoice, this.confidence)
       : view.phase === "results" ? results(view)
       : view.phase === "round-break" ? roundBreak(view)
       : gameOver(view);
     this.root.innerHTML = `<main class="controller-shell">${content}</main>`;
+    this.lastViewKey = viewKey;
   }
 
   private updateTimer() {
@@ -195,6 +202,7 @@ export class ControllerSurfaceRenderer {
   private handleInput(event: Event) {
     const target = event.target;
     if (!(target instanceof HTMLTextAreaElement)) return;
+    this.bluffDraft = target.value;
     const output = this.root.querySelector<HTMLOutputElement>("[data-count]");
     if (output) output.value = `${Array.from(target.value).length}/36`;
   }
@@ -204,14 +212,19 @@ export class ControllerSurfaceRenderer {
     if (!(target instanceof HTMLInputElement)) return;
     if (target.name === "choice") this.selectedChoice = target.value;
     if (target.name === "confidence" && (target.value === "sure" || target.value === "certain")) this.confidence = target.value;
-    if (target.name === "choice") this.render();
+    if (target.name === "choice") this.render(true);
   }
 
   private async handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     if (!this.coordinator || !(event.target instanceof HTMLFormElement)) return;
-    if (event.target.dataset.form === "bluff") {
-      const field = event.target.elements.namedItem("bluff");
+    await this.submitForm(event.target);
+  }
+
+  private async submitForm(form: HTMLFormElement) {
+    if (!this.coordinator) return;
+    if (form.dataset.form === "bluff") {
+      const field = form.elements.namedItem("bluff");
       if (!(field instanceof HTMLTextAreaElement)) return;
       const value = field.value.trim();
       if (Array.from(value).length < 2) {
@@ -230,6 +243,12 @@ export class ControllerSurfaceRenderer {
   private async handleClick(event: MouseEvent) {
     const target = (event.target as Element | null)?.closest<HTMLElement>("[data-action]");
     if (!target || !this.coordinator) return;
+    if (target.dataset.action === "submit-bluff" || target.dataset.action === "submit-vote") {
+      event.preventDefault();
+      const form = target.closest("form");
+      if (form instanceof HTMLFormElement) await this.submitForm(form);
+      return;
+    }
     if (target.dataset.action === "advance") await this.coordinator.advance();
     if (target.dataset.action === "settings") await this.coordinator.openSettings();
     if (target.dataset.action === "lobby") await this.coordinator.returnToLobby();

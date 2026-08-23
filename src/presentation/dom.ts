@@ -8,8 +8,10 @@ export function html(value: unknown): string {
 }
 
 export function flapText(value: string, className = ""): string {
-  return `<span class="flap-text ${html(className)}" aria-label="${html(value)}">${[...value]
-    .map((character) => `<span class="flap-cell" aria-hidden="true">${character === " " ? "&nbsp;" : html(character)}</span>`)
+  return `<span class="flap-text ${html(className)}" aria-label="${html(value)}">${value.split(" ")
+    .map((word) => `<span class="flap-word" aria-hidden="true">${[...word]
+      .map((character) => `<span class="flap-cell">${html(character)}</span>`)
+      .join("")}</span>`)
     .join("")}</span>`;
 }
 

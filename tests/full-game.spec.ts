@@ -40,6 +40,20 @@ test("three controllers complete all four files while the host remains passive",
 
   for (let round = 1; round <= 4; round += 1) {
     for (const [index, controller] of controllers.entries()) {
+      if (round === 1 && index === 0) {
+        const draft = controller.getByRole("textbox", { name: "Your false answer" });
+        await draft.fill("credible draft");
+        await expect(draft).toBeFocused();
+        const draftNode = await draft.elementHandle();
+        expect(draftNode).not.toBeNull();
+        const playerTwoParticipant = participantPanel.getByRole("article").filter({ hasText: "Player 2" });
+        await playerTwoParticipant.getByRole("button", { name: "Mark waiting" }).click();
+        await expect(draft).toHaveValue("credible draft");
+        expect(await draftNode!.evaluate((element) => element.isConnected)).toBe(true);
+        await playerTwoParticipant.getByRole("button", { name: "Mark ready" }).click();
+        await expect(draft).toHaveValue("credible draft");
+        expect(await draftNode!.evaluate((element) => element.isConnected)).toBe(true);
+      }
       await submitBluff(controller, `credible answer ${round}-${index + 1}`);
     }
     if (round === 1) {

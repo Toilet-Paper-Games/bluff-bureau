@@ -14,7 +14,8 @@ import type {
 import { decodeBluffBureauState, decodePlayerIntentState } from "../domain/codec";
 import type { BluffBureauState, DomainParticipantRole, PlayerIntentState } from "../domain/model";
 
-function roleOf(role: RuntimeParticipant["role"] | SurfaceContext["surfaceKind"]): DomainParticipantRole {
+export function mapRuntimeRole(role: RuntimeParticipant["role"] | SurfaceContext["surfaceKind"]): DomainParticipantRole {
+  if (role === "host") return "host-display";
   if (role === "controller" || role === "host-display" || role === "spectator" || role === "logic") {
     return role as DomainParticipantRole;
   }
@@ -26,13 +27,13 @@ function mapParticipant(participant: RuntimeParticipant): RuntimeParticipantValu
     id: participant.id,
     name: participant.screenName,
     connected: participant.connected,
-    role: roleOf(participant.role)
+    role: mapRuntimeRole(participant.role)
   };
 }
 
 function mapContext(context: SurfaceContext): RuntimeContextValue {
   return {
-    surfaceKind: roleOf(context.surfaceKind),
+    surfaceKind: mapRuntimeRole(context.surfaceKind),
     participantId: context.participantId,
     authorityParticipantId: context.authorityParticipantId,
     isAuthority: context.isAuthority,

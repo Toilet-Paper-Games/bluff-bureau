@@ -37,3 +37,33 @@
 - Ownership: platform public-package delivery and manifest CLI.
 - Issues: [#930](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/930) and [#931](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/931).
 - Acceptance criteria: a clean public scaffold validates and dry-runs the same passive manifest, and the real installed `tpg` bin prints results and returns a truthful exit code.
+
+## 2026-08-23 — device login pending response
+
+- Attempted: signed in with the public `tpgames login` device flow against the production registry.
+- Worked well: the CLI generated the request, opened the signed-in approval surface, and described the requested scopes.
+- Confusing or failure-prone: the polling client handles generic `response.ok` before its explicit `202 authorization_pending` case, so the first pending poll is treated as activation and immediately fails candidate-key verification with `401`.
+- Workaround: locally reorder those two response branches in the installed dependency so pending requests continue polling. No game source or bundle is changed.
+- Ownership: platform public SDK authentication.
+- Issue: [#932](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/932).
+- Acceptance criteria: an unapproved device request remains pending until approval, denial, or expiry; only an activated response proceeds to credential verification.
+
+## 2026-08-23 — production runtime bootstrap aliases
+
+- Attempted: launched the published game in a fresh production room with one passive display and three controllers.
+- Worked well: live catalog discovery, artwork, room creation, controller joins, and authority assignment all matched the public author workflow.
+- Confusing or failure-prone: production participant snapshots call the display role `host` while the public author vocabulary uses `host-display`. The first external-game shared snapshot is also the shell-owned `{ kind: "external", gameId }` selection marker rather than an absent game-owned value.
+- Workaround: normalize only the exact `host` alias to `host-display` and recognize only the matching external-game marker as uninitialized. All other unknown roles and malformed snapshots still fail clearly.
+- Ownership: platform live-runtime adapter and public SDK contract.
+- Issues: [#935](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/935) and [#936](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/936).
+- Acceptance criteria: production runtime participants use the public role vocabulary, and SDK-native external games start with absent shared state until authority commits game-owned state.
+
+## 2026-08-23 — production controller writes
+
+- Attempted: filed bluffs and votes from three production controller surfaces after authoritative room initialization.
+- Worked well: player-owned intents, authority acceptance, receipts, voting, confidence scoring, and results all converged once the controller used the live revision.
+- Confusing or failure-prone: a newly mounted controller initially observed player-state revision `0`, while its first write was rejected with the transport’s much newer current revision. Frequent identical shell snapshots also made full controller-form replacement disruptive under real browser timing.
+- Workaround: preserve local draft/selection state, skip DOM replacement when the controller view is unchanged, route visible submit buttons through the stable delegated action seam, and retry an idempotent intent once at the exact stale revision returned by the platform.
+- Ownership: the renderer stability changes belong to the game; initial player-state revision replay belongs to the platform.
+- Issue: [#940](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/940).
+- Acceptance criteria: the first controller write uses the current revision without rejection, and repeated identical room snapshots do not replace an active form control.

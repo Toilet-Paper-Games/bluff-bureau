@@ -85,7 +85,8 @@ button:focus-visible, textarea:focus-visible, input:focus-visible + span, input:
 .signal-strip { justify-content: center; min-height: clamp(3rem, 7vh, 5rem); box-shadow: 0 -0.2rem 0 var(--flap-off); color: var(--orange); font-size: clamp(1rem, 2vw, 1.7rem); font-weight: 800; text-align: center; }
 .signal-dot { width: 0.65rem; aspect-ratio: 1; background: var(--orange); box-shadow: 0 0.15rem 0.5rem oklch(0.58 0.19 43 / 0.5); }
 
-.flap-text { display: flex; flex-wrap: wrap; gap: clamp(0.1rem, 0.28vw, 0.32rem); font-family: "Archivo Narrow Variable", ui-sans-serif, sans-serif; font-stretch: condensed; font-weight: 770; text-transform: uppercase; }
+.flap-text { display: flex; flex-wrap: wrap; gap: clamp(0.2em, 0.6vw, 0.65em) clamp(0.1rem, 0.28vw, 0.32rem); font-family: "Archivo Narrow Variable", ui-sans-serif, sans-serif; font-stretch: condensed; font-weight: 770; text-transform: uppercase; }
+.flap-word { display: inline-flex; gap: clamp(0.1rem, 0.28vw, 0.32rem); }
 .flap-cell {
   position: relative;
   display: inline-grid;
@@ -173,7 +174,7 @@ button:focus-visible, textarea:focus-visible, input:focus-visible + span, input:
 .results-layout { grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.28fr); grid-template-rows: minmax(15rem, 1fr) minmax(0, 0.9fr); align-items: stretch; }
 .truth-stage { display: flex; flex-direction: column; grid-column: 1; grid-row: 1; justify-content: center; gap: 0.7rem; background: var(--mint); color: var(--ink); box-shadow: 0.45rem 0.5rem 0 oklch(0.58 0.09 157), inset 0 0 0 0.12rem oklch(0.45 0.075 157); }
 .truth-stamp { align-self: flex-start; background: var(--mint); box-shadow: 0.25rem 0.3rem 0 oklch(0.62 0.09 157); }
-.truth-flaps { font-size: clamp(2.4rem, 5.5vw, 6rem); line-height: 0.9; }
+.truth-flaps { font-size: clamp(3.2rem, 7.5vw, 8.5rem); line-height: 0.86; }
 .truth-flaps .flap-cell { background: var(--flap); color: var(--mint); }
 .explanation { margin: 0; max-width: 48ch; font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.45; text-wrap: pretty; }
 .source-note { margin: 0; color: oklch(0.31 0.04 248); font-size: 0.85rem; }

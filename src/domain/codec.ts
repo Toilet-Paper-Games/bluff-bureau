@@ -2,6 +2,10 @@ import { GAME_SCHEMA_VERSION, type BluffBureauState, type PlayerIntentState } fr
 
 export function decodeBluffBureauState(value: unknown): BluffBureauState | undefined {
   if (!value || typeof value !== "object") return undefined;
+  if (
+    "kind" in value && value.kind === "external" &&
+    "gameId" in value && value.gameId === "bluff-bureau"
+  ) return undefined;
   const state = value as Partial<BluffBureauState>;
   if (
     state.schemaVersion !== GAME_SCHEMA_VERSION ||

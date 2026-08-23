@@ -57,7 +57,7 @@ npm run validate
 
 `npm run test:e2e` launches one host and three real controller iframes, plays every action across all four files, verifies final standings and host passivity, then exercises reconnect and authority transfer. It records a video and trace. A checked-in run is available at [docs/evidence/full-game-playthrough.webm](docs/evidence/full-game-playthrough.webm).
 
-`npm run validate` runs the TPG boundary/capability checks, builds the exact registry archive, and validates its strict manifest and bundle-relative files through the package API. The resulting archive is `dist/bluff-bureau-0.1.0.zip` and is intentionally ignored by Git. The manifest’s controller-only playable topology and passive-host tag record the public-display contract until the merged `displayInteraction` schema ships in the public author packages ([platform issue](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/930)).
+`npm run validate` runs the TPG boundary/capability checks, builds the exact registry archive, and validates its strict manifest and bundle-relative files through the package API. The resulting archive is `dist/bluff-bureau-0.1.6.zip` and is intentionally ignored by Git. The manifest’s controller-only playable topology and passive-host tag record the public-display contract until the merged `displayInteraction` schema ships in the public author packages ([platform issue](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/930)).
 
 ## Publish
 
@@ -74,6 +74,7 @@ The production registry is the default. Browser login is available through `npm 
 - [PRODUCT.md](PRODUCT.md) — product contract and constraints
 - [docs/game-design.md](docs/game-design.md) — rules and scoring
 - [docs/design-artifacts.md](docs/design-artifacts.md) — visual direction, north-star states, and design evidence
+- [docs/production-verification.md](docs/production-verification.md) — published version, fresh-room journey, and release evidence
 - [docs/developer-experience.md](docs/developer-experience.md) — platform authoring journal
 
 The trivia library in `src/application/content.ts` keeps an authoritative source label and URL with every case file; sources are revealed with each answer.

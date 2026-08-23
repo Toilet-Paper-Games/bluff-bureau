@@ -28,6 +28,7 @@ export class RuntimeMock implements RuntimePort {
   private contextListeners = new Set<ContextListener>();
   private lifecycleListeners = new Set<LifecycleListener>();
   private nextSharedRejection?: MutationResult;
+  private nextPlayerRejection?: MutationResult;
 
   constructor(
     public contextValue: RuntimeContextValue,
@@ -46,6 +47,7 @@ export class RuntimeMock implements RuntimePort {
   }
 
   rejectNextShared(result: MutationResult) { this.nextSharedRejection = result; }
+  rejectNextPlayer(result: MutationResult) { this.nextPlayerRejection = result; }
 
   async writeSharedState(value: BluffBureauState, expectedRevision: number): Promise<MutationResult> {
     this.sharedWrites.push({ value: structuredClone(value), expectedRevision });
@@ -72,6 +74,15 @@ export class RuntimeMock implements RuntimePort {
     if (!participantId) return { status: "rejected", reason: "not-owner", revision: 0, message: "No player owns this surface." };
     const current = this.playerValues[participantId] ?? { value: undefined, revision: 0 };
     this.playerWrites.push({ participantId, value: structuredClone(value), expectedRevision });
+    if (this.nextPlayerRejection) {
+      const result = this.nextPlayerRejection;
+      this.nextPlayerRejection = undefined;
+      this.rejections.push({ target: "player", result });
+      if (result.status === "rejected" && result.reason === "stale-revision") {
+        this.playerValues[participantId] = { value: current.value, revision: result.revision };
+      }
+      return result;
+    }
     if (expectedRevision !== current.revision) {
       const result: MutationResult = { status: "rejected", reason: "stale-revision", revision: current.revision, message: "Player revision changed." };
       this.rejections.push({ target: "player", result });

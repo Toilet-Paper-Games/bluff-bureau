@@ -237,7 +237,11 @@ export class GameCoordinator {
       }
     };
     this.patch({ playerWritePending: true, lastError: null });
-    const result = await this.runtime.writeOwnPlayerState(value, this.snapshotValue.ownPlayerRevision);
+    let result = await this.runtime.writeOwnPlayerState(value, this.snapshotValue.ownPlayerRevision);
+    if (result.status === "rejected" && result.reason === "stale-revision") {
+      this.patch({ ownPlayerRevision: result.revision });
+      result = await this.runtime.writeOwnPlayerState(value, result.revision);
+    }
     if (result.status === "rejected") this.patch({ playerWritePending: false, lastError: result.message });
     return result;
   }
