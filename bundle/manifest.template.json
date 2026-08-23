@@ -1,0 +1,71 @@
+{
+  "manifestVersion": "1",
+  "gameId": "bluff-bureau",
+  "version": "0.1.0",
+  "sdkVersion": "1.0.0",
+  "title": "Bluff Bureau",
+  "description": "File a believable lie, find the strange truth, and decide how confidently to risk your vote.",
+  "surfaces": [
+    {
+      "id": "host",
+      "kind": "host-display",
+      "entry": "/host.html",
+      "required": true
+    },
+    {
+      "id": "controller",
+      "kind": "controller",
+      "entry": "/controller.html",
+      "required": true
+    },
+    {
+      "id": "spectator",
+      "kind": "spectator",
+      "entry": "/spectator.html",
+      "required": false
+    }
+  ],
+  "capabilities": [],
+  "permissions": [],
+  "gameMetadata": {
+    "primaryCategory": "word",
+    "secondaryCategories": [
+      "party-activity",
+      "trivia"
+    ],
+    "interactionMode": "competitive",
+    "sessionPace": "quick",
+    "playerCount": {
+      "min": 3,
+      "max": 8,
+      "recommended": 5
+    }
+  },
+  "presentationMetadata": {
+    "shortDescription": "Write the lie. Find the truth. Risk your confidence.",
+    "longDescription": "A fast bluffing game for 3–8 players. Invent convincing wrong answers, identify bizarre truths, and choose whether to double both your reward and your risk.",
+    "cardTitle": "BLUFF BUREAU",
+    "tags": [
+      "bluffing",
+      "party",
+      "voting",
+      "passive-host",
+      "trivia"
+    ],
+    "legacyCategories": ["2d", "word-games"],
+    "artwork": {
+      "thumbnail": "/artwork/thumbnail.png",
+      "card": "/artwork/card.png",
+      "hero": "/artwork/hero.png"
+    },
+    "launchColor": "#0c1728",
+    "estimatedDurationMinutes": 15
+  },
+  "sessionTopology": {
+    "display": "required",
+    "supportsSpectators": true,
+    "playableParticipantModes": [
+      "controller"
+    ]
+  }
+}

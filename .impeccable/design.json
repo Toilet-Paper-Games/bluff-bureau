@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-23T19:38:35Z",
+  "title": "Design System: Bluff Bureau",
+  "extensions": {
+    "colorMeta": {
+      "midnight-void": { "role": "neutral", "displayName": "Midnight Void", "canonical": "oklch(0.105 0.025 252)", "tonalRamp": ["oklch(0.15 0.025 252)", "oklch(0.26 0.025 252)", "oklch(0.38 0.025 252)", "oklch(0.50 0.025 252)", "oklch(0.62 0.025 252)", "oklch(0.74 0.025 252)", "oklch(0.86 0.025 252)", "oklch(0.95 0.025 252)"] },
+      "cobalt-enamel": { "role": "neutral", "displayName": "Cobalt Enamel", "canonical": "oklch(0.19 0.047 251)", "tonalRamp": ["oklch(0.15 0.047 251)", "oklch(0.26 0.047 251)", "oklch(0.38 0.047 251)", "oklch(0.50 0.047 251)", "oklch(0.62 0.047 251)", "oklch(0.74 0.047 251)", "oklch(0.86 0.047 251)", "oklch(0.95 0.047 251)"] },
+      "raised-enamel": { "role": "neutral", "displayName": "Raised Enamel", "canonical": "oklch(0.235 0.051 249)", "tonalRamp": ["oklch(0.15 0.051 249)", "oklch(0.26 0.051 249)", "oklch(0.38 0.051 249)", "oklch(0.50 0.051 249)", "oklch(0.62 0.051 249)", "oklch(0.74 0.051 249)", "oklch(0.86 0.051 249)", "oklch(0.95 0.051 249)"] },
+      "dormant-flap": { "role": "neutral", "displayName": "Dormant Flap", "canonical": "oklch(0.14 0.025 252)", "tonalRamp": ["oklch(0.15 0.025 252)", "oklch(0.26 0.025 252)", "oklch(0.38 0.025 252)", "oklch(0.50 0.025 252)", "oklch(0.62 0.025 252)", "oklch(0.74 0.025 252)", "oklch(0.86 0.025 252)", "oklch(0.95 0.025 252)"] },
+      "flap-edge": { "role": "neutral", "displayName": "Flap Edge", "canonical": "oklch(0.275 0.025 252)", "tonalRamp": ["oklch(0.15 0.025 252)", "oklch(0.26 0.025 252)", "oklch(0.38 0.025 252)", "oklch(0.50 0.025 252)", "oklch(0.62 0.025 252)", "oklch(0.74 0.025 252)", "oklch(0.86 0.025 252)", "oklch(0.95 0.025 252)"] },
+      "docket-paper": { "role": "neutral", "displayName": "Docket Paper", "canonical": "oklch(0.9 0.045 82)", "tonalRamp": ["oklch(0.15 0.045 82)", "oklch(0.26 0.045 82)", "oklch(0.38 0.045 82)", "oklch(0.50 0.045 82)", "oklch(0.62 0.045 82)", "oklch(0.74 0.045 82)", "oklch(0.86 0.045 82)", "oklch(0.95 0.045 82)"] },
+      "docket-shadow": { "role": "neutral", "displayName": "Docket Shadow", "canonical": "oklch(0.79 0.055 77)", "tonalRamp": ["oklch(0.15 0.055 77)", "oklch(0.26 0.055 77)", "oklch(0.38 0.055 77)", "oklch(0.50 0.055 77)", "oklch(0.62 0.055 77)", "oklch(0.74 0.055 77)", "oklch(0.86 0.055 77)", "oklch(0.95 0.055 77)"] },
+      "flap-ivory": { "role": "neutral", "displayName": "Flap Ivory", "canonical": "oklch(0.95 0.026 86)", "tonalRamp": ["oklch(0.15 0.026 86)", "oklch(0.26 0.026 86)", "oklch(0.38 0.026 86)", "oklch(0.50 0.026 86)", "oklch(0.62 0.026 86)", "oklch(0.74 0.026 86)", "oklch(0.86 0.026 86)", "oklch(0.95 0.026 86)"] },
+      "muted-slate": { "role": "neutral", "displayName": "Muted Slate", "canonical": "oklch(0.76 0.035 246)", "tonalRamp": ["oklch(0.15 0.035 246)", "oklch(0.26 0.035 246)", "oklch(0.38 0.035 246)", "oklch(0.50 0.035 246)", "oklch(0.62 0.035 246)", "oklch(0.74 0.035 246)", "oklch(0.86 0.035 246)", "oklch(0.95 0.035 246)"] },
+      "signal-orange": { "role": "primary", "displayName": "Signal Orange", "canonical": "oklch(0.75 0.19 52)", "tonalRamp": ["oklch(0.15 0.19 52)", "oklch(0.26 0.19 52)", "oklch(0.38 0.19 52)", "oklch(0.50 0.19 52)", "oklch(0.62 0.19 52)", "oklch(0.74 0.19 52)", "oklch(0.86 0.19 52)", "oklch(0.95 0.19 52)"] },
+      "pressed-orange": { "role": "primary", "displayName": "Pressed Orange", "canonical": "oklch(0.58 0.19 43)", "tonalRamp": ["oklch(0.15 0.19 43)", "oklch(0.26 0.19 43)", "oklch(0.38 0.19 43)", "oklch(0.50 0.19 43)", "oklch(0.62 0.19 43)", "oklch(0.74 0.19 43)", "oklch(0.86 0.19 43)", "oklch(0.95 0.19 43)"] },
+      "truth-mint": { "role": "secondary", "displayName": "Truth Mint", "canonical": "oklch(0.82 0.105 157)", "tonalRamp": ["oklch(0.15 0.105 157)", "oklch(0.26 0.105 157)", "oklch(0.38 0.105 157)", "oklch(0.50 0.105 157)", "oklch(0.62 0.105 157)", "oklch(0.74 0.105 157)", "oklch(0.86 0.105 157)", "oklch(0.95 0.105 157)"] },
+      "bureau-magenta": { "role": "secondary", "displayName": "Bureau Magenta", "canonical": "oklch(0.62 0.22 356)", "tonalRamp": ["oklch(0.15 0.22 356)", "oklch(0.26 0.22 356)", "oklch(0.38 0.22 356)", "oklch(0.50 0.22 356)", "oklch(0.62 0.22 356)", "oklch(0.74 0.22 356)", "oklch(0.86 0.22 356)", "oklch(0.95 0.22 356)"] },
+      "alert-red": { "role": "tertiary", "displayName": "Alert Red", "canonical": "oklch(0.68 0.2 25)", "tonalRamp": ["oklch(0.15 0.2 25)", "oklch(0.26 0.2 25)", "oklch(0.38 0.2 25)", "oklch(0.50 0.2 25)", "oklch(0.62 0.2 25)", "oklch(0.74 0.2 25)", "oklch(0.86 0.2 25)", "oklch(0.95 0.2 25)"] },
+      "docket-ink": { "role": "neutral", "displayName": "Docket Ink", "canonical": "oklch(0.16 0.032 250)", "tonalRamp": ["oklch(0.15 0.032 250)", "oklch(0.26 0.032 250)", "oklch(0.38 0.032 250)", "oklch(0.50 0.032 250)", "oklch(0.62 0.032 250)", "oklch(0.74 0.032 250)", "oklch(0.86 0.032 250)", "oklch(0.95 0.032 250)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Monumental shared-display prompts and split-flap declarations." },
+      "headline": { "displayName": "Headline", "purpose": "Controller phase titles and decisive end-state names." },
+      "title": { "displayName": "Title", "purpose": "Private prompts, truth slips, and mid-scale information." },
+      "body": { "displayName": "Body", "purpose": "Instructions, explanations, helper copy, and form content." },
+      "label": { "displayName": "Label", "purpose": "Uppercase file labels, status tags, stamps, and rails." }
+    },
+    "shadows": [
+      { "name": "raised-enamel", "value": "0 0.75rem 1.75rem oklch(0.05 0.015 252 / 0.38), 0 0.125rem 0.25rem oklch(0.03 0.01 252 / 0.55)", "purpose": "Ambient lift for large public panels and controller dockets." },
+      { "name": "paper-offset", "value": "0.25rem 0.3rem 0 var(--paper-dark)", "purpose": "Crisp physical underlayer beneath paper tabs and stamps." },
+      { "name": "controller-offset", "value": "0.65rem 0.75rem 0 var(--orange-dark)", "purpose": "Strong orange edge separating the private paper controller from enamel." },
+      { "name": "flap-seam", "value": "inset 0 0 0 0.05em oklch(0.39 0.025 250 / 0.48)", "purpose": "Internal construction line for split-flap cells." }
+    ],
+    "motion": [
+      { "name": "control-press", "value": "140ms cubic-bezier(0.2, 0, 0, 1)", "purpose": "Compresses controller actions to 96% scale when activated." },
+      { "name": "truth-settle", "value": "420ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Settles truth cells with a brief perspective rotation when reduced motion is not requested." },
+      { "name": "signal-pulse", "value": "1.4s steps(2, end) infinite", "purpose": "Pulses the small live-status lamp with mechanical cadence." }
+    ],
+    "breakpoints": [
+      { "name": "result-compact", "value": "64rem" },
+      { "name": "public-single-column", "value": "46rem" },
+      { "name": "controller-narrow", "value": "23.5rem" },
+      { "name": "public-compact-height", "value": "48rem height" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The dominant controller commitment for the current phase.",
+      "html": "<button class=\"ds-primary-button\" type=\"button\">FILE BLUFF</button>",
+      "css": ".ds-primary-button { width: 100%; min-height: 3.25rem; border: 0; border-radius: var(--radius-sm); padding: 0.8rem 1rem; background: var(--orange); color: var(--ink); box-shadow: 0 0.35rem 0 var(--orange-dark); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-weight: 760; cursor: pointer; transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1), background-color 140ms cubic-bezier(0.2, 0, 0, 1); } .ds-primary-button:hover { background: var(--orange); box-shadow: 0 0.35rem 0 var(--orange-dark); } .ds-primary-button:focus-visible { outline: 0.1875rem solid var(--mint); outline-offset: 0.1875rem; } .ds-primary-button:active { transform: scale(0.96); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A tactile but subordinate controller action such as room settings.",
+      "html": "<button class=\"ds-secondary-button\" type=\"button\">ROOM SETTINGS</button>",
+      "css": ".ds-secondary-button { min-height: 3.25rem; border: 0; border-radius: var(--radius-sm); padding: 0.8rem 1rem; background: var(--ink); color: var(--paper); box-shadow: 0 0.3rem 0 oklch(0.07 0.02 251); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-weight: 760; cursor: pointer; transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1); } .ds-secondary-button:hover { background: var(--ink); box-shadow: 0 0.3rem 0 oklch(0.07 0.02 251); } .ds-secondary-button:focus-visible { outline: 0.1875rem solid var(--mint); outline-offset: 0.1875rem; } .ds-secondary-button:active { transform: scale(0.96); }"
+    },
+    {
+      "name": "Docket Text Area",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "The warm paper field used to file a private bluff.",
+      "html": "<label class=\"ds-field\" for=\"ds-bluff\"><strong>Your false answer</strong><textarea id=\"ds-bluff\" placeholder=\"Make it plausible…\"></textarea><span>2–80 characters</span></label>",
+      "css": ".ds-field { display: grid; gap: 0.5rem; color: var(--ink); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-weight: 720; } .ds-field textarea { width: 100%; min-height: 7.5rem; resize: vertical; border: 0.125rem solid var(--ink); border-radius: var(--radius-sm); padding: 0.85rem; background: oklch(0.97 0.018 85); color: var(--ink); font: 400 1rem/1.4 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; } .ds-field textarea:hover { border-color: var(--ink); } .ds-field textarea:focus-visible { outline: 0.1875rem solid var(--mint); outline-offset: 0.1875rem; } .ds-field span { color: oklch(0.42 0.035 251); font-size: 0.82rem; font-weight: 400; }"
+    },
+    {
+      "name": "Paper Tab",
+      "kind": "chip",
+      "description": "A clipped file label for phase, category, or record status.",
+      "html": "<span class=\"ds-paper-tab\">BUREAU INTAKE</span>",
+      "css": ".ds-paper-tab { display: inline-block; padding: 0.45rem 0.8rem; background: var(--paper); color: var(--ink); box-shadow: 0.25rem 0.3rem 0 var(--paper-dark); font: 780 0.83rem/1.2 'Archivo Narrow Variable', ui-sans-serif, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Controller Docket",
+      "kind": "card",
+      "refersTo": "controller-card",
+      "description": "The private paper work surface centered on a player's phone.",
+      "html": "<section class=\"ds-controller-card\"><span class=\"ds-paper-tab\">HOW TO PLAY</span><h2>Three moves. One truth.</h2><p>Write a plausible wrong answer, then decide how certain you are.</p></section>",
+      "css": ".ds-controller-card { width: min(100%, 34rem); display: flex; flex-direction: column; gap: 1.5rem; padding: clamp(1rem, 5vw, 1.75rem); background: var(--paper); color: var(--ink); box-shadow: 0.65rem 0.75rem 0 var(--orange-dark), 0 0.75rem 1.75rem oklch(0.05 0.015 252 / 0.38); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; } .ds-controller-card h2 { margin: 0; font: 780 clamp(2.3rem, 11vw, 4rem)/0.92 'Archivo Narrow Variable', ui-sans-serif, sans-serif; letter-spacing: -0.025em; } .ds-controller-card p { margin: 0; line-height: 1.5; } .ds-paper-tab { align-self: flex-start; padding: 0.45rem 0.8rem; background: var(--ink); color: var(--paper); box-shadow: 0.2rem 0.25rem 0 var(--orange); font: 780 0.83rem/1.2 'Archivo Narrow Variable', ui-sans-serif, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Split-Flap Cell",
+      "kind": "custom",
+      "refersTo": "split-flap",
+      "description": "The signature mechanical character cell used for Bureau declarations.",
+      "html": "<span class=\"ds-flap-word\" aria-label=\"TRUTH\"><span>T</span><span>R</span><span>U</span><span>T</span><span>H</span></span>",
+      "css": ".ds-flap-word { display: inline-flex; gap: 0.18rem; font: 770 3rem/0.94 'Archivo Narrow Variable', ui-sans-serif, sans-serif; text-transform: uppercase; } .ds-flap-word > span { position: relative; display: inline-grid; place-items: center; min-width: 0.75em; min-height: 1.18em; padding: 0 0.08em; overflow: hidden; background: var(--flap); color: var(--ivory); box-shadow: inset 0 0 0 0.05em oklch(0.39 0.025 250 / 0.48), 0 0.08em 0.12em oklch(0.05 0.01 250 / 0.65); } .ds-flap-word > span::after { content: ''; position: absolute; inset-inline: 0; top: 49%; height: 0.055em; background: var(--void); box-shadow: 0 0.035em 0 oklch(0.45 0.025 250 / 0.4); }"
+    },
+    {
+      "name": "Answer Option",
+      "kind": "custom",
+      "description": "A private vote row whose selected state reverses and gains an orange boundary.",
+      "html": "<label class=\"ds-answer-option\"><input type=\"radio\" name=\"answer-demo\" checked><span class=\"ds-answer-letter\">A</span><strong>A tiny ceremonial umbrella</strong></label>",
+      "css": ".ds-answer-option { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0.75rem; min-height: 3.5rem; padding: 0.55rem; background: oklch(0.85 0.04 82); color: var(--ink); box-shadow: inset 0 0 0 0.1rem oklch(0.65 0.04 75); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; cursor: pointer; } .ds-answer-option input { position: absolute; width: 1px; height: 1px; opacity: 0; } .ds-answer-letter { display: grid; place-items: center; width: 2.5rem; aspect-ratio: 1; background: var(--flap); color: var(--orange); font: 800 1.4rem/1 'Archivo Narrow Variable', ui-sans-serif, sans-serif; } .ds-answer-option:hover { box-shadow: inset 0 0 0 0.1rem oklch(0.65 0.04 75); } .ds-answer-option:has(input:focus-visible) { outline: 0.1875rem solid var(--mint); outline-offset: 0.1875rem; } .ds-answer-option:has(input:checked) { background: var(--ink); color: var(--paper); box-shadow: inset 0 0 0 0.18rem var(--orange); } .ds-answer-option:has(input:checked) .ds-answer-letter { background: var(--orange); color: var(--ink); }"
+    },
+    {
+      "name": "Truth Stamp",
+      "kind": "chip",
+      "description": "The exclusive mint certification label used at the reveal.",
+      "html": "<span class=\"ds-truth-stamp\">THE TRUTH</span>",
+      "css": ".ds-truth-stamp { display: inline-block; padding: 0.45rem 0.8rem; background: var(--mint); color: var(--ink); box-shadow: 0.25rem 0.3rem 0 oklch(0.62 0.09 157); font: 780 0.83rem/1.2 'Archivo Narrow Variable', ui-sans-serif, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Truth Routing Board",
+    "overview": "Bluff Bureau feels like a late-twentieth-century records office whose fixed mechanical information board has been repurposed for improbable facts. Midnight-cobalt enamel, split-flap typography, signal lamps, and stamped paper slips make each phase feel processed by one coherent apparatus rather than arranged as a dashboard of interchangeable cards.\n\nThe shared display is monumental, public, and passive; a single prompt, tally, or reveal owns the room at a time. Player controllers translate the same world into tactile paper dockets with one dominant private task. Motion is sparse and mechanical: lamps pulse in steps and truth cells settle into place, while reduced-motion users receive the same hierarchy without animation.",
+    "keyCharacteristics": [
+      "Fixed information-board topology with one decisive state.",
+      "Dark enamel public surfaces paired with warm paper controllers.",
+      "Condensed, uppercase display typography with readable humanist body copy.",
+      "Orange communicates action, mint certifies truth, and magenta marks Bureau identity.",
+      "Mechanical depth from hard offsets, inset seams, and restrained ambient lift."
+    ],
+    "rules": [
+      { "name": "The Signal Has Meaning Rule", "body": "Orange means act or attend, mint means verified or successful, and magenta means Bureau identity; do not use these accents as interchangeable decoration.", "section": "colors" },
+      { "name": "The One Enamel Chassis Rule", "body": "Public screens stay within the midnight-cobalt family so the changing state reads as one machine, not a new page.", "section": "colors" },
+      { "name": "The Machine Speaks Narrow Rule", "body": "Use Archivo Narrow for anything the Bureau declares; use Source Sans 3 for anything that explains what a person should do.", "section": "typography" },
+      { "name": "The Mechanical Depth Rule", "body": "Elevation must describe a part, seam, layer, or press state; never add a soft decorative glow merely to make a surface feel premium.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give each surface one dominant prompt, task, tally, or reveal.",
+      "Do preserve the fixed public rail/content/signal-strip topology across every game phase.",
+      "Do use paper material for private controller work and enamel material for public room state.",
+      "Do keep controller touch targets at least 44 CSS pixels and preserve the mint keyboard-focus treatment.",
+      "Do keep state language literal alongside lamps, colors, stamps, and animation."
+    ],
+    "donts": [
+      "Don't turn the public display into a dashboard of equal cards or add host controls to the passive surface.",
+      "Don't scatter orange, mint, or magenta as decoration; each accent has a durable semantic job.",
+      "Don't round public panels, split-flap cells, stamps, score rows, or answer rows into soft app cards.",
+      "Don't use body copy in the condensed display face or long explanations in all caps.",
+      "Don't add gradients, glass effects, ornamental glow, or continuous motion that weakens the mechanical apparatus."
+    ]
+  }
+}
