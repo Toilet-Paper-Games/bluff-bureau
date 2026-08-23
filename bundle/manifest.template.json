@@ -1,7 +1,7 @@
 {
   "manifestVersion": "1",
   "gameId": "bluff-bureau",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "sdkVersion": "1.0.0",
   "title": "Bluff Bureau",
   "description": "File a believable lie, find the strange truth, and decide how confidently to risk your vote.",

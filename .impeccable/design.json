@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-23T21:08:00Z",
+  "generatedAt": "2026-08-23T22:24:03Z",
   "title": "Design System: Bluff Bureau",
   "extensions": {
     "direction": {
@@ -14,16 +14,16 @@
       "screen-raised": { "role": "neutral", "displayName": "Raised Screen", "canonical": "oklch(0.19 0.035 246)", "tonalRamp": ["oklch(0.15 0.035 246)", "oklch(0.26 0.035 246)", "oklch(0.38 0.035 246)", "oklch(0.50 0.035 246)", "oklch(0.62 0.035 246)", "oklch(0.74 0.035 246)", "oklch(0.86 0.035 246)", "oklch(0.95 0.035 246)"] },
       "steel": { "role": "neutral", "displayName": "Instrument Steel", "canonical": "oklch(0.44 0.025 246)", "tonalRamp": ["oklch(0.15 0.025 246)", "oklch(0.26 0.025 246)", "oklch(0.38 0.025 246)", "oklch(0.50 0.025 246)", "oklch(0.62 0.025 246)", "oklch(0.74 0.025 246)", "oklch(0.86 0.025 246)", "oklch(0.95 0.025 246)"] },
       "steel-light": { "role": "neutral", "displayName": "Bright Steel", "canonical": "oklch(0.68 0.03 245)", "tonalRamp": ["oklch(0.15 0.03 245)", "oklch(0.26 0.03 245)", "oklch(0.38 0.03 245)", "oklch(0.50 0.03 245)", "oklch(0.62 0.03 245)", "oklch(0.74 0.03 245)", "oklch(0.86 0.03 245)", "oklch(0.95 0.03 245)"] },
-      "evidence-cream": { "role": "neutral", "displayName": "Evidence Cream", "canonical": "oklch(0.94 0.055 91)", "tonalRamp": ["oklch(0.15 0.055 91)", "oklch(0.26 0.055 91)", "oklch(0.38 0.055 91)", "oklch(0.50 0.055 91)", "oklch(0.62 0.055 91)", "oklch(0.74 0.055 91)", "oklch(0.86 0.055 91)", "oklch(0.95 0.055 91)"] },
-      "cream-shadow": { "role": "neutral", "displayName": "Cream Shadow", "canonical": "oklch(0.79 0.065 82)", "tonalRamp": ["oklch(0.15 0.065 82)", "oklch(0.26 0.065 82)", "oklch(0.38 0.065 82)", "oklch(0.50 0.065 82)", "oklch(0.62 0.065 82)", "oklch(0.74 0.065 82)", "oklch(0.86 0.065 82)", "oklch(0.95 0.065 82)"] },
-      "chassis-orange": { "role": "primary", "displayName": "Chassis Orange", "canonical": "oklch(0.68 0.205 39)", "tonalRamp": ["oklch(0.15 0.205 39)", "oklch(0.26 0.205 39)", "oklch(0.38 0.205 39)", "oklch(0.50 0.205 39)", "oklch(0.62 0.205 39)", "oklch(0.74 0.205 39)", "oklch(0.86 0.205 39)", "oklch(0.95 0.205 39)"] },
-      "pressed-orange": { "role": "primary", "displayName": "Pressed Orange", "canonical": "oklch(0.47 0.175 35)", "tonalRamp": ["oklch(0.15 0.175 35)", "oklch(0.26 0.175 35)", "oklch(0.38 0.175 35)", "oklch(0.50 0.175 35)", "oklch(0.62 0.175 35)", "oklch(0.74 0.175 35)", "oklch(0.86 0.175 35)", "oklch(0.95 0.175 35)"] },
-      "signal-yellow": { "role": "secondary", "displayName": "Signal Yellow", "canonical": "oklch(0.9 0.185 98)", "tonalRamp": ["oklch(0.15 0.185 98)", "oklch(0.26 0.185 98)", "oklch(0.38 0.185 98)", "oklch(0.50 0.185 98)", "oklch(0.62 0.185 98)", "oklch(0.74 0.185 98)", "oklch(0.86 0.185 98)", "oklch(0.95 0.185 98)"] },
-      "truth-phosphor": { "role": "secondary", "displayName": "Truth Phosphor", "canonical": "oklch(0.9 0.2 133)", "tonalRamp": ["oklch(0.15 0.2 133)", "oklch(0.26 0.2 133)", "oklch(0.38 0.2 133)", "oklch(0.50 0.2 133)", "oklch(0.62 0.2 133)", "oklch(0.74 0.2 133)", "oklch(0.86 0.2 133)", "oklch(0.95 0.2 133)"] },
-      "phosphor-shadow": { "role": "secondary", "displayName": "Phosphor Shadow", "canonical": "oklch(0.63 0.16 139)", "tonalRamp": ["oklch(0.15 0.16 139)", "oklch(0.26 0.16 139)", "oklch(0.38 0.16 139)", "oklch(0.50 0.16 139)", "oklch(0.62 0.16 139)", "oklch(0.74 0.16 139)", "oklch(0.86 0.16 139)", "oklch(0.95 0.16 139)"] },
-      "instrument-cyan": { "role": "tertiary", "displayName": "Instrument Cyan", "canonical": "oklch(0.78 0.145 211)", "tonalRamp": ["oklch(0.15 0.145 211)", "oklch(0.26 0.145 211)", "oklch(0.38 0.145 211)", "oklch(0.50 0.145 211)", "oklch(0.62 0.145 211)", "oklch(0.74 0.145 211)", "oklch(0.86 0.145 211)", "oklch(0.95 0.145 211)"] },
-      "bureau-magenta": { "role": "tertiary", "displayName": "Bureau Magenta", "canonical": "oklch(0.68 0.24 350)", "tonalRamp": ["oklch(0.15 0.24 350)", "oklch(0.26 0.24 350)", "oklch(0.38 0.24 350)", "oklch(0.50 0.24 350)", "oklch(0.62 0.24 350)", "oklch(0.74 0.24 350)", "oklch(0.86 0.24 350)", "oklch(0.95 0.24 350)"] },
-      "alert-red": { "role": "tertiary", "displayName": "Alert Red", "canonical": "oklch(0.62 0.22 27)", "tonalRamp": ["oklch(0.15 0.22 27)", "oklch(0.26 0.22 27)", "oklch(0.38 0.22 27)", "oklch(0.50 0.22 27)", "oklch(0.62 0.22 27)", "oklch(0.74 0.22 27)", "oklch(0.86 0.22 27)", "oklch(0.95 0.22 27)"] },
+      "evidence-cream": { "role": "neutral", "displayName": "Evidence Cream", "canonical": "oklch(0.93 0.04 88)", "tonalRamp": ["oklch(0.15 0.04 88)", "oklch(0.26 0.04 88)", "oklch(0.38 0.04 88)", "oklch(0.50 0.04 88)", "oklch(0.62 0.04 88)", "oklch(0.74 0.04 88)", "oklch(0.86 0.04 88)", "oklch(0.95 0.04 88)"] },
+      "cream-shadow": { "role": "neutral", "displayName": "Cream Shadow", "canonical": "oklch(0.76 0.045 80)", "tonalRamp": ["oklch(0.15 0.045 80)", "oklch(0.26 0.045 80)", "oklch(0.38 0.045 80)", "oklch(0.50 0.045 80)", "oklch(0.62 0.045 80)", "oklch(0.74 0.045 80)", "oklch(0.86 0.045 80)", "oklch(0.95 0.045 80)"] },
+      "chassis-orange": { "role": "primary", "displayName": "Chassis Orange", "canonical": "oklch(0.63 0.165 41)", "tonalRamp": ["oklch(0.15 0.165 41)", "oklch(0.26 0.165 41)", "oklch(0.38 0.165 41)", "oklch(0.50 0.165 41)", "oklch(0.62 0.165 41)", "oklch(0.74 0.165 41)", "oklch(0.86 0.165 41)", "oklch(0.95 0.165 41)"] },
+      "pressed-orange": { "role": "primary", "displayName": "Pressed Orange", "canonical": "oklch(0.42 0.13 37)", "tonalRamp": ["oklch(0.15 0.13 37)", "oklch(0.26 0.13 37)", "oklch(0.38 0.13 37)", "oklch(0.50 0.13 37)", "oklch(0.62 0.13 37)", "oklch(0.74 0.13 37)", "oklch(0.86 0.13 37)", "oklch(0.95 0.13 37)"] },
+      "signal-yellow": { "role": "secondary", "displayName": "Signal Yellow", "canonical": "oklch(0.86 0.14 92)", "tonalRamp": ["oklch(0.15 0.14 92)", "oklch(0.26 0.14 92)", "oklch(0.38 0.14 92)", "oklch(0.50 0.14 92)", "oklch(0.62 0.14 92)", "oklch(0.74 0.14 92)", "oklch(0.86 0.14 92)", "oklch(0.95 0.14 92)"] },
+      "truth-phosphor": { "role": "secondary", "displayName": "Truth Phosphor", "canonical": "oklch(0.82 0.145 132)", "tonalRamp": ["oklch(0.15 0.145 132)", "oklch(0.26 0.145 132)", "oklch(0.38 0.145 132)", "oklch(0.50 0.145 132)", "oklch(0.62 0.145 132)", "oklch(0.74 0.145 132)", "oklch(0.86 0.145 132)", "oklch(0.95 0.145 132)"] },
+      "phosphor-shadow": { "role": "secondary", "displayName": "Phosphor Shadow", "canonical": "oklch(0.56 0.115 136)", "tonalRamp": ["oklch(0.15 0.115 136)", "oklch(0.26 0.115 136)", "oklch(0.38 0.115 136)", "oklch(0.50 0.115 136)", "oklch(0.62 0.115 136)", "oklch(0.74 0.115 136)", "oklch(0.86 0.115 136)", "oklch(0.95 0.115 136)"] },
+      "instrument-cyan": { "role": "tertiary", "displayName": "Instrument Cool", "canonical": "oklch(0.75 0.04 211)", "tonalRamp": ["oklch(0.15 0.04 211)", "oklch(0.26 0.04 211)", "oklch(0.38 0.04 211)", "oklch(0.50 0.04 211)", "oklch(0.62 0.04 211)", "oklch(0.74 0.04 211)", "oklch(0.86 0.04 211)", "oklch(0.95 0.04 211)"] },
+      "bureau-magenta": { "role": "tertiary", "displayName": "Bureau Seal", "canonical": "oklch(0.62 0.045 350)", "tonalRamp": ["oklch(0.15 0.045 350)", "oklch(0.26 0.045 350)", "oklch(0.38 0.045 350)", "oklch(0.50 0.045 350)", "oklch(0.62 0.045 350)", "oklch(0.74 0.045 350)", "oklch(0.86 0.045 350)", "oklch(0.95 0.045 350)"] },
+      "alert-red": { "role": "tertiary", "displayName": "Alert Red", "canonical": "oklch(0.58 0.18 27)", "tonalRamp": ["oklch(0.15 0.18 27)", "oklch(0.26 0.18 27)", "oklch(0.38 0.18 27)", "oklch(0.50 0.18 27)", "oklch(0.62 0.18 27)", "oklch(0.74 0.18 27)", "oklch(0.86 0.18 27)", "oklch(0.95 0.18 27)"] },
       "focus-lime": { "role": "tertiary", "displayName": "Focus Lime", "canonical": "oklch(0.96 0.2 111)", "tonalRamp": ["oklch(0.15 0.2 111)", "oklch(0.26 0.2 111)", "oklch(0.38 0.2 111)", "oklch(0.50 0.2 111)", "oklch(0.62 0.2 111)", "oklch(0.74 0.2 111)", "oklch(0.86 0.2 111)", "oklch(0.95 0.2 111)"] },
       "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(0.16 0.03 252)", "tonalRamp": ["oklch(0.15 0.03 252)", "oklch(0.26 0.03 252)", "oklch(0.38 0.03 252)", "oklch(0.50 0.03 252)", "oklch(0.62 0.03 252)", "oklch(0.74 0.03 252)", "oklch(0.86 0.03 252)", "oklch(0.95 0.03 252)"] }
     },
@@ -49,7 +49,7 @@
       { "name": "public-single-column", "value": "46rem" },
       { "name": "controller-answer-bank", "value": "30rem" },
       { "name": "controller-narrow", "value": "23.5rem" },
-      { "name": "public-compact-height", "value": "48rem height" }
+      { "name": "public-compact-height", "value": "52rem height" }
     ]
   },
   "components": [
@@ -65,9 +65,9 @@
       "name": "Evidence Answer Key",
       "kind": "custom",
       "refersTo": "answer-key",
-      "description": "A color-mapped native-radio key used in the fixed two-column phone answer pad.",
+      "description": "A uniform cream native-radio key used in the fixed two-column phone answer pad.",
       "html": "<label class=\"ds-answer-key\"><input type=\"radio\" name=\"answer\"><span>A</span><strong>Miniature dice</strong></label>",
-      "css": ".ds-answer-key { position: relative; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0.75rem; min-height: 3.75rem; padding: 0.55rem; border-radius: 0.55rem; background: var(--cream); color: var(--ink); } .ds-answer-key input { position: absolute; inset: 0; opacity: 0; } .ds-answer-key:has(input:checked) { background: var(--phosphor); box-shadow: 0 0 0 0.18rem var(--cream); }"
+      "css": ".ds-answer-key { position: relative; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0.75rem; min-height: 3.75rem; padding: 0.55rem; border-radius: 0.55rem; background: var(--cream); color: var(--ink); } .ds-answer-key input { position: absolute; inset: 0; opacity: 0; } .ds-answer-key:has(input:checked) { background: var(--yellow); box-shadow: 0 0 0 0.18rem var(--cream), 0 0 0 0.36rem var(--yellow); }"
     },
     {
       "name": "CRT Screen",
@@ -95,17 +95,17 @@
   ],
   "narrative": {
     "northStar": "The Lie-Processing Machine",
-    "overview": "A saturated late-1970s microfilm evidence theater. The passive host is one orange physical apparatus whose persistent film drive, CRT, lamps, knobs, evidence feed, and score drums process every game phase. The phone is a chunky Bureau field terminal with an antenna, inset display well, fixed 2×4 answer pad, confidence controls, and one arcade-scale lock action.",
+    "overview": "A restrained late-1970s microfilm evidence theater. The passive host is one orange physical apparatus whose persistent film drive, CRT, lamps, knobs, evidence feed, and score drums process every game phase. The phone is a chunky Bureau field terminal with an antenna, inset display well, fixed 2×4 answer pad, confidence controls, and one arcade-scale lock action.",
     "keyCharacteristics": [
       "One permanent orange machine, never a dashboard of themed panels.",
       "Near-black CRT glass with phosphor truth, scanlines, and staged evidence routing.",
-      "Cream evidence paddles and saturated instrument signals.",
+      "Uniform cream evidence paddles with scarce yellow and phosphor signals.",
       "Persistent reels, film path, bulbs, screws, knobs, and hard physical offsets.",
       "A phone controller whose full decision architecture fits the first viewport."
     ],
     "rules": [
       { "name": "One Machine, Many States", "body": "The chassis stays fixed while its active instrument changes; never frame phases as separate pages or equal cards.", "section": "layout" },
-      { "name": "Truth Owns Phosphor", "body": "Acid green certifies truth and confirmation; yellow means act, cyan means measurement, and magenta identifies the Bureau.", "section": "colors" },
+      { "name": "Signals Stay Scarce", "body": "Cream keys and dark glass carry ordinary state; yellow marks selection, phosphor certifies truth, and red marks final commitment.", "section": "colors" },
       { "name": "Hardware Must Do a Job", "body": "Every reel, lamp, knob, gate, and paddle must explain or carry game state.", "section": "components" },
       { "name": "The Phone Is a Controller", "body": "Keep confidence and commitment visible or unmistakably reachable; use key banks instead of long form stacks.", "section": "layout" }
     ],
@@ -117,6 +117,7 @@
     ],
     "donts": [
       "Do not return to navy dashboard panels or paper-document card layouts.",
+      "Do not assign a different saturated color to every answer, rank, lamp, or decoration.",
       "Do not hide confidence or Lock vote below an unbounded answer list.",
       "Do not use motion or color as the sole representation of state.",
       "Do not add host controls or move authority outside controllers."

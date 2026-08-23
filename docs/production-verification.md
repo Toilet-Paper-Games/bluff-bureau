@@ -1,5 +1,31 @@
 # Production verification
 
+## 2026-08-23 — Bluff Bureau 0.2.4 restrained arcade palette
+
+- Registry asset base: `https://tpg-registry.tp-games.workers.dev/published-assets/bluff-bureau/0.2.4`
+- Publication check: registry publication returned `ok: true` with manifest version `0.2.4`, entry base `0.2.4`, and launch color `#f4511e`.
+- Asset and integrity check: `host.html`, `controller.html`, `spectator.html`, the production stylesheet, and card artwork each returned HTTP 200 and matched the SHA-256 hashes of the locally validated `0.2.4` archive.
+- Palette check: ordinary game state is dominated by near-black CRT glass and uniform warm-cream keys. Muted orange is limited to the physical chassis; yellow marks attention and selection; phosphor marks truth and confirmation; red is reserved for errors and the final Lock vote control.
+- Controller check: all eight cream answer keys, confidence controls, and Lock vote fit together at 375×812 with 0 px horizontal and vertical overflow. The selected answer alone turns yellow and also exposes its letter and physical selection pip.
+- Host check: maximum voting at 1280×800 shows all nine public choices and all eight score rows inside the CRT in Chromium and WebKit, with 28 px of scoreboard clearance, 0 px page overflow, and zero host interactions. Maximum lobby and results also fit at 1280×800 and 1440×900.
+- Performance check: FCP and LCP were 304 ms, CLS was 0, INP was 64 ms, and worst long-animation-frame blocking was 0 ms. No browser console or network errors were observed.
+- Accessibility check: native radio inputs remain keyboard operable; the Lock vote control shows a 3 px focus-lime outline; selection is communicated by letter, fill, outline, and pip rather than color alone; reduced motion removes staged animations.
+- Visual references: [`controller-restrained-voting.png`](evidence/controller-restrained-voting.png), [`host-restrained-voting.png`](evidence/host-restrained-voting.png), and [`host-restrained-results.png`](evidence/host-restrained-results.png).
+
+Release gates run immediately before publication:
+
+```text
+npm run typecheck
+npx playwright test tests/full-game.spec.ts -g "maximum voting choices"
+npm run test
+npm run test:e2e
+npm run validate
+npm run publish:dry-run
+npm run publish:game
+```
+
+Observed results: 8 unit tests passed, all 3 Playwright journeys passed, the maximum-choice phone/host regression passed independently, the strict `0.2.4` archive validated, and registry publication returned `ok: true`.
+
 ## 2026-08-23 — Bluff Bureau 0.2.2 no-scroll arcade controls
 
 - Registry asset base: `https://tpg-registry.tp-games.workers.dev/published-assets/bluff-bureau/0.2.2`

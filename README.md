@@ -57,7 +57,7 @@ npm run validate
 
 `npm run test:e2e` launches one host and three real controller iframes, plays every action across all four files, verifies final standings and host passivity, then exercises reconnect and authority transfer. It records a video and trace. A checked-in run is available at [docs/evidence/full-game-playthrough.webm](docs/evidence/full-game-playthrough.webm).
 
-`npm run validate` runs the TPG boundary/capability checks, builds the exact registry archive, and validates its strict manifest and bundle-relative files through the package API. The resulting archive is `dist/bluff-bureau-0.2.2.zip` and is intentionally ignored by Git. The manifest’s controller-only playable topology and passive-host tag record the public-display contract until the merged `displayInteraction` schema ships in the public author packages ([platform issue](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/930)).
+`npm run validate` runs the TPG boundary/capability checks, builds the exact registry archive, and validates its strict manifest and bundle-relative files through the package API. The resulting archive is `dist/bluff-bureau-0.2.4.zip` and is intentionally ignored by Git. The manifest’s controller-only playable topology and passive-host tag record the public-display contract until the merged `displayInteraction` schema ships in the public author packages ([platform issue](https://github.com/Toilet-Paper-Games/Toilet-Paper-Games/issues/930)).
 
 ## Publish
 

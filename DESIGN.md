@@ -7,16 +7,16 @@ colors:
   screen-raised: "oklch(0.19 0.035 246)"
   steel: "oklch(0.44 0.025 246)"
   steel-light: "oklch(0.68 0.03 245)"
-  evidence-cream: "oklch(0.94 0.055 91)"
-  cream-shadow: "oklch(0.79 0.065 82)"
-  chassis-orange: "oklch(0.68 0.205 39)"
-  pressed-orange: "oklch(0.47 0.175 35)"
-  signal-yellow: "oklch(0.9 0.185 98)"
-  truth-phosphor: "oklch(0.9 0.2 133)"
-  phosphor-shadow: "oklch(0.63 0.16 139)"
-  instrument-cyan: "oklch(0.78 0.145 211)"
-  bureau-magenta: "oklch(0.68 0.24 350)"
-  alert-red: "oklch(0.62 0.22 27)"
+  evidence-cream: "oklch(0.93 0.04 88)"
+  cream-shadow: "oklch(0.76 0.045 80)"
+  chassis-orange: "oklch(0.63 0.165 41)"
+  pressed-orange: "oklch(0.42 0.13 37)"
+  signal-yellow: "oklch(0.86 0.14 92)"
+  truth-phosphor: "oklch(0.82 0.145 132)"
+  phosphor-shadow: "oklch(0.56 0.115 136)"
+  instrument-cyan: "oklch(0.75 0.04 211)"
+  bureau-magenta: "oklch(0.62 0.045 350)"
+  alert-red: "oklch(0.58 0.18 27)"
   focus-lime: "oklch(0.96 0.2 111)"
   ink: "oklch(0.16 0.03 252)"
 typography:
@@ -88,7 +88,7 @@ components:
 
 Grounded direction 6, concept seed `90460392`.
 
-Bluff Bureau is a saturated late-1970s microfilm evidence theater: a single orange machine that scans strange facts, feeds candidate answers through a CRT, and certifies one ridiculous truth in phosphor green. It should be remembered as a game-show prop, never as a website with a themed background.
+Bluff Bureau is a restrained late-1970s microfilm evidence theater: a single orange machine that scans strange facts, feeds candidate answers through a CRT, and certifies one ridiculous truth in phosphor green. It should be remembered as a game-show prop, never as a website with a themed background.
 
 The shared display is one passive physical apparatus. Its identity rail, persistent film drive, CRT glass, evidence field, result feed, lamps, and knobs remain in place while the game state changes inside the machine. A phone becomes a chunky Bureau field terminal with an antenna, inset display well, arcade answer bank, confidence controls, and one large lock button.
 
@@ -97,16 +97,16 @@ The shared display is one passive physical apparatus. Its identity rail, persist
 - A committed orange chassis owns the screen, with a subtle authored enamel texture rather than a flat app background.
 - Near-black CRT glass contains public game state. Scanlines, graticule-like rings, glow, and mechanical seams suggest an operating instrument.
 - Cream evidence stock carries answer text; acid phosphor green is exclusive to truth and confirmed state.
-- Signal yellow identifies attention and primary action. Cyan labels measurement. Magenta marks Bureau identity and choice lamps.
+- Signal yellow identifies attention and selection. Phosphor appears only for truth and confirmation; cool steel handles secondary labels without competing for attention.
 - Steel screws, reels, film paths, bezels, and knobs make depth structural. They are machine parts, not generic decoration.
 
 ## Colors
 
-The saturated palette separates physical machine parts from operational signals. Chassis orange owns the hardware; night, screen, and steel neutrals construct the CRT and mechanisms; evidence cream carries answer text; phosphor green certifies truth; yellow signals attention and action; cyan labels measurement; magenta identifies the Bureau; alert red marks errors; and focus lime is reserved for visible keyboard focus.
+The palette is neutral-dominant: night, screen, evidence cream, and steel occupy most of every surface. Muted chassis orange owns the hardware. Yellow is a small attention and selection signal, phosphor green certifies truth or confirmation, alert red is reserved for errors and the final vote control, and focus lime is reserved for visible keyboard focus.
 
 ### Named Rules
 
-**Truth Owns Phosphor.** Acid green certifies truth, success, and confirmed state. Yellow means act or attend, cyan means measurement, and magenta identifies the Bureau.
+**Signals Stay Scarce.** Cream keys and dark glass carry ordinary state. Yellow marks the current choice or action; phosphor certifies truth or confirmation; red marks errors and final commitment. No screen uses color merely to distinguish adjacent answers.
 
 ## Typography
 
@@ -154,17 +154,17 @@ Steel screws, reels, film paths, bezels, and knobs make depth structural. Hard e
 
 ## Shapes
 
-The physical vocabulary combines large rounded enclosures with precise machine parts. CRT glass and the field terminal use generous rounded shells; reels, bulbs, seals, knobs, and screws are circular; answer evidence and status plates remain rectangular; primary controller actions use an arcade-scale pill.
+The physical vocabulary combines large rounded enclosures with precise machine parts. CRT glass and the field terminal use generous rounded shells; reels, bulbs, seals, knobs, and screws are circular; answer evidence and status plates remain rectangular; the final vote control is a circular arcade button.
 
 ## Components
 
 ### Arcade Actions
 
-The signal-yellow primary action is the dominant controller commitment. General actions use chunky rectangular hardware; voting ends with a circular red Lock vote button. Both preserve hard mechanical depth, visible focus-lime outlines, and exact 96% press compression. Secondary actions reverse to the night-and-cream palette.
+General actions use chunky signal-yellow rectangular hardware; voting ends with a single circular red Lock vote button. Both preserve hard mechanical depth, visible focus-lime outlines, and exact 96% press compression. Secondary actions reverse to the night-and-cream palette.
 
 ### Answer Keys
 
-Four color-mapped native-radio keys form a fixed two-column arcade pad. Letter tokens, labels, and selection pips map directly to the shared display, so status never depends on color alone. The full eight-choice pad remains visible on phone widths without internal scrolling.
+Uniform cream native-radio keys form a fixed two-column arcade pad. Letter tokens map directly to the shared display; the selected key alone turns yellow and gains a redundant selection pip. The full eight-choice pad remains visible on phone widths without internal scrolling.
 
 ### CRT Screen
 
@@ -205,11 +205,12 @@ Reduced-motion users receive the same complete state with no dependency on anima
 - **Do** make the host read as a game-show prop from one glance.
 - **Do** keep the film drive and chassis visible across every phase.
 - **Do** stage reveals in legible beats.
-- **Do** retain the saturated palette and hard physical offsets.
+- **Do** let dark glass and cream evidence dominate, with scarce signal color and hard physical offsets.
 
 ### Don't:
 
 - **Don't** return to navy dashboard panels, paper document cards, or website hero patterns.
+- **Don't** assign a different saturated color to every answer, rank, lamp, or decoration.
 - **Don't** hide controller confidence or the lock action below an unbounded answer list.
 - **Don't** use animation as the only representation of state.
 - **Don't** add host interactions or move authority outside the controller.

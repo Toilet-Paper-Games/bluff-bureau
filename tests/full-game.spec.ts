@@ -122,7 +122,7 @@ test("a controller reconnects and room-director authority transfers safely", asy
   await expect(host.locator("button, input, textarea, select, a[href], [tabindex]")).toHaveCount(0);
 });
 
-test("maximum voting choices fit the phone without horizontal scrolling", async ({ page }) => {
+test("maximum voting choices fit the phone and host without clipping", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/gallery.html?surface=controller&scenario=max-voting&player=p1");
 
@@ -148,4 +148,26 @@ test("maximum voting choices fit the phone without horizontal scrolling", async 
   expect(overflow.page).toBe(0);
   expect(overflow.answerBank).toBe(0);
   expect(overflow.lockBottom).toBeLessThanOrEqual(812);
+
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/gallery.html?surface=host&scenario=max-voting");
+  await expect(page.locator(".choice-board li")).toHaveCount(9);
+  await expect(page.locator(".score-row")).toHaveCount(8);
+
+  const hostFit = await page.evaluate(() => {
+    const screen = document.querySelector<HTMLElement>(".screen-glass")?.getBoundingClientRect();
+    const lastChoice = document.querySelector<HTMLElement>(".choice-board li:last-child")?.getBoundingClientRect();
+    const lastScore = document.querySelector<HTMLElement>(".score-row:last-child")?.getBoundingClientRect();
+    if (!screen || !lastChoice || !lastScore) throw new Error("Missing maximum-voting host regions.");
+    return {
+      page: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      lastChoiceBottom: lastChoice.bottom,
+      lastScoreBottom: lastScore.bottom,
+      screenBottom: screen.bottom
+    };
+  });
+
+  expect(hostFit.page).toBe(0);
+  expect(hostFit.lastChoiceBottom).toBeLessThanOrEqual(hostFit.screenBottom);
+  expect(hostFit.lastScoreBottom).toBeLessThanOrEqual(hostFit.screenBottom);
 });
